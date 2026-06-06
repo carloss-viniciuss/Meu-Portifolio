@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | Carlos Vinicius</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Estilos exclusivos para a página de projetos se adaptarem ao seu CSS */
+        .projetos-main {
+            margin-top: 120px;
+            padding: 40px 10%;
+            min-height: 85vh;
+        }
+        
+        .grid-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card-projeto {
+            background: rgba(17, 17, 17, 0.95);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-projeto:hover {
+            border-color: #dc3545;
+            box-shadow: 0 0 25px rgba(220, 53, 69, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .card-projeto h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card-projeto p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tags-projeto {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .tags-projeto span {
+            color: #dc3545;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: rgba(220, 53, 69, 0.05);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(220, 53, 69, 0.1);
+        }
+
+        .btn-projeto-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-projeto-link:hover {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cyber-bg"></canvas>
+
+    <header>
+        <h1>CARLOS. <span>Dev</span></h1>
+        <nav>
+            <ul class="navegacao-primaria">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#alvo-sobre">Sobre Mim</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="index.html#alvo-contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="projetos-main" style="background: transparent;">
+        
+        <div class="sobre_titulo">
+            <h1>Meus Projetos</h1>
+            <div aria-label="Seção de botões">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="grid-projetos">
+            
+            <div class="card-projeto">
+                <div>
+                    <h3><i class="fa-brands fa-python" style="color: #dc3545; margin-right: 8px;"></i> TátilQuiz</h3>
+                    <p>Um jogo que desenvolvi na cadeira de Projetos 1 da CESAR school baseado em Acessibilidade Visual.</p>
+                </div>
+                <div>
+                    <div class="tags-projeto">
+                        <span>#C++</span>
+                        <span>#Arduino</span>
+                        <span>#Acessibilidade</span>
+                        <span>#QuizEducativo</span>
+                    </div>
+                    <a href="#" class="btn-projeto-link" target="_blank">
+                        VER_REPOSITORIO.sh <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-projeto">
+                <div>
+                    <h3><i class="fa-solid fa-microchip" style="color: #dc3545; margin-right: 8px;"></i> Hyrox Planner</h3>
+                    <p>Interface interativa de Academia, desenvolvida na cadeira de Fundamentos de Programação no 1º periodo na CESAR school</p>
+                </div>
+                <div>
+                    <div class="tags-projeto">
+                        <span>#Python</span>
+                        <span>#ManipulaçãoArquivos</span>
+                        <span>#TrabalhoEquipe</span>
+                    </div>
+                    <a href="#" class="btn-projeto-link" target="_blank">
+                        VER_REPOSITORIO.sh <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html#home" class="btn-cv"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
