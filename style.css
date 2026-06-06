@@ -386,3 +386,84 @@ main {
     position: relative;
     scroll-margin-top: 250px; 
 }
+
+/* ==========================================================================
+   ANIMAÇÃO HACKER: SYSTEM BREACH / GLITCH TRANSITION
+   ========================================================================== */
+.page-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: transparent;
+    pointer-events: none;
+    overflow: hidden;
+    transition: background 0.2s ease;
+}
+
+/* Quando o glitch ativa, o fundo fica preto e o efeito começa */
+.page-overlay.ativo {
+    background: #020202;
+    pointer-events: all;
+}
+
+/* Camada de ruído estático (linhas de scan de TV velha/bugada) */
+.glitch-noise {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%;
+    opacity: 0;
+}
+
+.page-overlay.ativo .glitch-noise {
+    opacity: 1;
+    animation: noise-move 0.2s infinite;
+}
+
+.hacker-alert {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.2rem; /* Aumentei um pouco o tamanho para dar mais impacto */
+    color: #ff001a;
+    font-weight: bold;
+    text-shadow: 0 0 15px #ff001a;
+    letter-spacing: 5px;
+    opacity: 0;
+    text-transform: uppercase;
+    z-index: 999999; /* Força o texto a ficar acima do noise e do canvas */
+}
+
+.page-overlay.ativo .hacker-alert {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: flash-text 0.15s infinite alternate;
+}
+
+/* CLASSE DE TREMOR GLOBAL (Aplicada ao BODY via JS) */
+.body-glitch-active {
+    animation: screen-shake 0.3s cubic-bezier(.36,.07,.19,.97) both infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    filter: invert(0.1) sepia(0.2) saturate(2) hue-rotate(330deg); /* Distorção cromática doentia */
+}
+
+/* KEYFRAMES DOS AGENTES MALICIOSOS */
+@keyframes screen-shake {
+    10%, 90% { transform: translate3d(-2px, 1px, 0) rotate(0.5deg); }
+    20%, 80% { transform: translate3d(4px, -2px, 0) rotate(-0.5deg); }
+    30%, 50%, 70% { transform: translate3d(-5px, 3px, 0) scale(1.01); }
+    40%, 60% { transform: translate3d(5px, -1px, 0) rotate(1deg); }
+}
+
+@keyframes noise-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 10px 20px; }
+}
+
+@keyframes flash-text {
+    0% { opacity: 0.2; text-shadow: 0 0 5px #ff001a; }
+    100% { opacity: 1; text-shadow: 0 0 20px #ff001a, 0 0 30px #ff0000; }
+}

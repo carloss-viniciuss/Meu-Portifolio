@@ -132,3 +132,44 @@ function type() {
 
 // Iniciar digitação automática ao carregar
 document.addEventListener("DOMContentLoaded", type);
+
+// ==========================================================================
+// MOTOR DE TRANSIÇÃO HACKER REFORÇADO (ANTI-BUG DE CONFLITO)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("pageOverlay");
+    const body = document.body;
+
+    // Usamos delegação de eventos no próprio 'document' com o modo 'capture' ativado (true)
+    // Isso garante que o nosso script intercepte o clique antes de qualquer animação do card do projeto
+    document.addEventListener("click", (e) => {
+        // Procura se o clique aconteceu num link ou dentro de um link
+        const link = e.target.closest("a");
+
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+
+        // Regras de exceção para não quebrar links internos ou novas abas
+        if (!href || href.startsWith("#") || link.getAttribute("target") === "_blank") {
+            return;
+        }
+
+        // Bloqueia a mudança de página instantânea do navegador
+        e.preventDefault();
+        e.stopPropagation();
+
+        // FASE 1: Ativa o tremor violento no site
+        body.classList.add("body-glitch-active");
+
+        // FASE 2: Entra o ecrã preto com o ruído de estática e o alerta vermelho
+        setTimeout(() => {
+            if (overlay) overlay.classList.add("ativo");
+        }, 150); // Reduzi ligeiramente para o bug entrar mais rápido
+
+        // FASE 3: Redireciona com segurança após o colapso visual completo
+        setTimeout(() => {
+            window.location.href = href;
+        }, 950);
+    }, true); // O 'true' ativa o modo de captura prioritária do JavaScript
+});

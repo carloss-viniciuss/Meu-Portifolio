@@ -49,22 +49,28 @@
                 0 15px 45px rgba(220, 53, 69, 0.35);
         }
 
-        /* 2. ENERGIA PASSANDO NAS BORDAS (Linha Neon Infinita) */
-        .card-projeto::before {
-            content: "";
-            position: absolute;
-            inset: -2px; /* Fica ligeiramente maior que o card */
-            border-radius: 8px;
-            padding: 2px; /* Espessura do feixe de energia */
-            background: linear-gradient(90deg, transparent, #ff001a, transparent, #ff001a, transparent);
-            background-size: 200% auto;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+       /* 2. ENERGIA PASSANDO NAS BORDAS (Linha Neon Infinita atualizada) */
+.card-projeto::before {
+    content: "";
+    position: absolute;
+    inset: -2px; /* Fica ligeiramente maior que o card */
+    border-radius: 8px;
+    padding: 2px; /* Espessura do feixe de energia */
+    background: linear-gradient(90deg, transparent, #ff001a, transparent, #ff001a, transparent);
+    background-size: 200% auto;
+    
+    /* Regras para navegadores baseados em Webkit (Chrome, Edge, Safari, Opera) */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    
+    /* PROPAGAÇÃO PADRÃO (Para compatibilidade total, ex: Firefox) */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude; /* No padrão da W3C, o equivalente ao 'xor' do webkit é o 'exclude' */
+    
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
         /* Ativa o fluxo de energia correndo nas bordas no hover */
         .card-projeto:hover::before {
@@ -218,6 +224,10 @@
 </head>
 
 <body>
+    <div class="page-overlay" id="pageOverlay">
+    <div class="glitch-noise"></div>
+    <div class="hacker-alert">SYSTEMA HACKEADO!_...</div>
+</div>
     <canvas id="cyber-bg"></canvas>
 
     <header>
@@ -226,9 +236,9 @@
             <ul class="navegacao-primaria">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#alvo-sobre">Sobre Mim</a></li>
+                <li><a href="index.html#alvo-contato">Contato</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="certificados.html">Certificados</a></li>
-                <li><a href="index.html#alvo-contato">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -303,7 +313,7 @@
                         <span>#File_Handling</span>
                         <span>#TeamWork</span>
                     </div>
-                    <a href="https://github.com" class="btn-projeto-link" target="_blank">
+                    <a href="https://github.com/Hyrox-Planner-grupo-2/Novo-sistema-de-Treinos" class="btn-projeto-link" target="_blank">
                         RUN: REPOSITORIO.sh <i class="fa-solid fa-code-branch"></i>
                     </a>
                 </div>
