@@ -158,7 +158,6 @@ main {
     grid-template-columns: 1fr 1.8fr;
     gap: 50px;
     padding: 40px;
-    /* MUDANÇA AQUI: Alinha os itens para esticar e ocupar a mesma altura */
     align-items: stretch; 
 }
 
@@ -328,4 +327,62 @@ main {
 @keyframes pulsoNeon {
     0%, 100% { box-shadow: 0 0 20px rgba(220, 53, 69, 0.4); transform: scale(1); }
     50% { box-shadow: 0 0 40px rgba(220, 53, 69, 0.8); transform: scale(1.02); }
+}
+
+/* BOTÃO DE PROJETOS PARA PREENCHER O ESPAÇO */
+.projetos-link-container {
+    margin-top: 30px;
+    border-top: 1px solid rgba(220, 53, 69, 0.1);
+    padding-top: 30px;
+    width: 100%;
+}
+
+.btn-projetos-grande {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    padding: 22px;
+    background: rgba(220, 53, 69, 0.03);
+    border: 2px solid #dc3545;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.15);
+    cursor: pointer;
+}
+
+.btn-projetos-grande i {
+    font-size: 1.4rem;
+    color: #dc3545;
+    transition: all 0.4s ease;
+}
+
+/* Efeito de ativação ao passar o mouse */
+.btn-projetos-grande:hover {
+    background: #dc3545;
+    box-shadow: 0 0 30px #dc3545;
+    transform: translateY(-4px);
+}
+
+.btn-projetos-grande:hover i {
+    color: #fff;
+}
+
+/* --- ADICIONE ISSO NO FINAL DE TUDO DO SEU CSS --- */
+#alvo-sobre {
+    display: block;
+    position: relative;
+    scroll-margin-top: 140px; 
+}
+
+/* --- ADICIONE ISSO NO FINAL DE TUDO DO SEU CSS, ABAIXO DO ALVO-SOBRE --- */
+#alvo-contato {
+    display: block;
+    position: relative;
+    scroll-margin-top: 250px; 
 }

@@ -12,16 +12,16 @@
     <canvas id="cyber-bg"></canvas>
 
     <header>
-        <h1>CARLOS. <span>Dev</span></h1>
-        <nav>
-            <ul class="navegacao-primaria">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>CARLOS. <span>Dev</span></h1>
+    <nav>
+        <ul class="navegacao-primaria">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#alvo-sobre">Sobre Mim</a></li> 
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="#alvo-contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section id="home" aria-label="seção curriculo" class="section-div">
         <div>
@@ -34,9 +34,11 @@
         <div class="foto-container">
             <img src="imagens/1.PNG" alt="foto de perfil">
         </div>
-    </section>
+   </section>
 
     <main>
+    <div id="alvo-sobre"></div>
+
     <article id="sobre" aria-label="seção sobre mim" class="sobre">
         <div class="sobre_titulo">
             <h1>Sobre Mim</h1>
@@ -53,14 +55,20 @@
 
         <div class="sobre_conteudo">
             
-            <div class="sobre_texto">
+            <div class="sobre_texto" id="sobre-texto-inicio">
                 <h1>I'm Python programmer - Carlos Vinicius</h1>
                 <p>Iniciei minha jornada na tecnologia aos 11 anos, movido pela curiosidade de entender como o mundo digital funcionava. Hoje, aos 18, sou graduando em Ciência da Computação na CESAR School, onde transformo essa paixão antiga em soluções reais.</p>
                 <br>
-                <p>Sou focado em programação Python, resolução de problemas complexos e entusiasta de Inteligência Artificial. Busco constantemente alinhar rigor técnico com inovação e criatividade, desenvolvendo uma postura adaptável e pronta para os desafios do mercado de tecnologia.</p>
+                <p>Sou focado em programação Python, resolução de problemas complexos e entusiasta de Inteligência Artificial. Busco constantemente alinhar rigor técnico com inovação e criatividade, desenvolvendo uma postura adaptável and pronta para os desafios do mercado de tecnologia.</p>
             </div>
             
-            <div class="sobre_info">
+            <div id="alvo-contato"></div>
+
+            <div class="skills-container" id="contato-inicio" style="border-top: 1px solid rgba(220, 53, 69, 0.1); padding-top: 20px; margin-top: 10px;">
+                <h2 style="text-align: left; color: #fff; font-size: 1.4rem;">Contato</h2>
+            </div>
+
+            <div class="sobre_info" style="border-top: none; padding-top: 0; margin-top: -20px;">
                 <p><i class="fa-solid fa-calendar-days"></i> <strong>Nascimento:</strong> 27/09/2007</p>
                 <p><i class="fa-solid fa-location-dot"></i> <strong>Endereço:</strong> Recife/PE, Brasil</p>
                 <p><i class="fa-solid fa-globe"></i> <strong>Idiomas:</strong> PT (Fluente) / EN (Intermediário)</p>
@@ -81,12 +89,15 @@
                     <div class="icon-box" data-name="CSS3"><i class="fa-brands fa-css3-alt"></i></div>
                 </div>
             </div>
-
-        </div>
-    </article>
-</main>
+            <br>
+            <div class="projetos-link-container">
+                <a href="projetos.html" class="btn-projetos-grande">
+                    <i class="fa-solid fa-code-branch"></i> ACESSAR_PROJETOS.exe
+                </a>
             </div>
-        </article>
+
+        </div> 
+    </article>
     </main>
 
     <script src="script.js"></script>
