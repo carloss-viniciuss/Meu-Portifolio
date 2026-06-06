@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificações | Carlos Vinicius</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .certificados-main {
+            margin-top: 120px;
+            padding: 40px 10%;
+            min-height: 85vh;
+        }
+
+        .grid-certificados {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            /* Ativa o ambiente tridimensional global profunda */
+            perspective: 1000px;
+        }
+
+        /* CARD COM EFEITO TILT 3D EXCLUSIVO */
+        .card-certificado {
+            background: rgba(10, 5, 5, 0.98);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            border-radius: 6px;
+            padding: 30px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+            
+            /* Crucial para os elementos filhos respeitarem as camadas 3D */
+            transform-style: preserve-3d;
+            
+            /* Suaviza o movimento ao entrar/sair do rato */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-certificado:hover {
+            border-color: #ff001a;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Camada de brilho/reflexo holográfico dinâmico */
+        .brilho-3d {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(220, 53, 69, 0.15) 0%, transparent 60%);
+            border-radius: 6px;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* CONTEÚDO E TEXTOS INTERNOS DO CARTÃO */
+        .topo-cert {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            transform: translateZ(30px); /* Salta para a frente no espaço 3D */
+        }
+
+        .topo-cert i {
+            font-size: 2.2rem;
+            color: rgba(220, 53, 69, 0.8);
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.3);
+            transition: color 0.3s;
+        }
+
+        .card-certificado:hover .topo-cert i {
+            color: #ff001a;
+            text-shadow: 0 0 15px #ff001a;
+        }
+
+        .status-badge {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #00ff66;
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            padding: 3px 8px;
+            background: rgba(0, 255, 102, 0.05);
+            text-shadow: 0 0 5px #00ff66;
+        }
+
+        .corpo-cert {
+            transform: translateZ(40px); /* Ganha ainda mais destaque que o topo */
+        }
+
+        .card-certificado h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+        }
+
+        .card-certificado p {
+            color: #888;
+            font-size: 0.9rem;
+            margin: 0 0 20px 0;
+            line-height: 1.5;
+        }
+
+        .instituicao-tag {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            color: #dc3545;
+            font-weight: bold;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        /* LINK DO DOCUMENTO EXECUTÁVEL */
+        .btn-ver-credencial {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-bottom: 4px;
+            margin-top: 15px;
+            transition: all 0.3s;
+            transform: translateZ(25px);
+        }
+
+        .btn-ver-credencial:hover {
+            color: #ff001a;
+            border-color: #ff001a;
+            text-shadow: 0 0 8px #ff001a;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cyber-bg"></canvas>
+
+    <header>
+        <h1>CARLOS. <span>Dev</span></h1>
+        <nav>
+            <ul class="navegacao-primaria">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#alvo-sobre">Sobre Mim</a></li>
+                <li><a href="index.html#alvo-contato">Contato</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificados.html">Certificados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="certificados-main" style="background: transparent;">
+        
+        <div class="sobre_titulo">
+            <h1>Credenciais / Certificados</h1>
+            <div aria-label="Decoração"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="grid-certificados">
+            
+            <div class="card-certificado js-tilt-card">
+                <div class="brilho-3d"></div>
+                <div>
+                    <div class="topo-cert">
+                        <i class="fa-brands fa-python"></i>
+                        <span class="status-badge">// VERIFICADO</span>
+                    </div>
+                    <div class="corpo-cert">
+                        <h3>Fundamentos Python</h3>
+                        <p>Curso de introdução a conceitos fundamentais de Python e sua linguagem.</p>
+                        <span class="instituicao-tag">> CISCO</span>
+                    </div>
+                </div>
+                <a href="./imagens/CERTIFICADOS/python.pdf" class="btn-ver-credencial" target="_blank">
+                    ACESS_CREDENTIAL.exe <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="card-certificado js-tilt-card">
+                <div class="brilho-3d"></div>
+                <div>
+                    <div class="topo-cert">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span class="status-badge">// VERIFICADO</span>
+                    </div>
+                    <div class="corpo-cert">
+                        <h3>Palestra Cybersegurança / Neurodesign</h3>
+                        <p>Palestra sobre a importância do fator humano na Cybersegurança e a ligação do Neurodesign na prevenção de ataques.</p>
+                        <span class="instituicao-tag">> CESAR Beat</span>
+                    </div>
+                </div>
+                <a href="./imagens/CERTIFICADOS/cyberseguranca.pdf" class="btn-ver-credencial" target="_blank">
+                    VER_CREDENTIAL.exe <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+             <div class="card-certificado js-tilt-card">
+                <div class="brilho-3d"></div>
+                <div>
+                    <div class="topo-cert">
+                       <i class="fa-solid fa-chart-line"></i>
+                        <span class="status-badge">// VERIFICADO</span>
+                    </div>
+                    <div class="corpo-cert">
+                        <h3>Da Lama ao Lattes</h3>
+                        <p>Palestra focada na aprimoração de currículo e entendimento do mercado tecnológico moderno..</p>
+                        <span class="instituicao-tag">> CESAR Beat</span>
+                    </div>
+                </div>
+                <a href="./imagens/CERTIFICADOS/curriculo.pdf" class="btn-ver-credencial" target="_blank">
+                    VER_CREDENTIAL.exe <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="card-certificado js-tilt-card">
+                <div class="brilho-3d"></div>
+                <div>
+                    <div class="topo-cert">
+                       <i class="fa-solid fa-network-wired"></i>
+                        <span class="status-badge">// VERIFICADO</span>
+                    </div>
+                    <div class="corpo-cert">
+                        <h3>Arquitetura da Verdade e IA</h3>
+                        <p>Palestra focada em como a IA está Redefinindo em quem Confiamos na Era Digital</p>
+                        <span class="instituicao-tag">> CESAR Beat</span>
+                    </div>
+                </div>
+                <a href="./imagens/CERTIFICADOS/intenligencia.pdf" class="btn-ver-credencial" target="_blank">
+                    VER_CREDENTIAL.exe <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="card-certificado js-tilt-card">
+                <div class="brilho-3d"></div>
+                <div>
+                    <div class="topo-cert">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span class="status-badge">// VERIFICADO</span>
+                    </div>
+                    <div class="corpo-cert">
+                        <h3>CODE COMBAT</h3>
+                        <p>Certificado de conclusão do MINIGAME baseado em programação da matéria de fundamentos de Python</p>
+                        <span class="instituicao-tag">> CESAR Beat</span>
+                    </div>
+                </div>
+                <a href="./imagens/CERTIFICADOS/codecombat.png" class="btn-ver-credencial" target="_blank">
+                    VER_CREDENTIAL.exe <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="index.html#home" class="btn-cv"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+        </div>
+
+    </main>
+
+    <script>
+        const cards = document.querySelectorAll('.js-tilt-card');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                
+                // Posição do rato relativa ao cartão (0 até o tamanho máximo)
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calcula o ponto central do cartão
+                const centroX = rect.width / 2;
+                const centroY = rect.height / 2;
+                
+                // Define a agressividade da rotação (números maiores inclinam menos)
+                const forcaRotacao = 15; 
+                const rotateX = (centroY - y) / forcaRotacao;
+                const rotateY = (x - centroX) / forcaRotacao;
+                
+                // Aplica a inclinação ao elemento físico
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                
+                // Mapeia as coordenadas para o gradiente de brilho CSS (em percentagem)
+                const brilhoX = (x / rect.width) * 100;
+                const brilhoY = (y / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${brilhoX}%`);
+                card.style.setProperty('--mouse-y', `${brilhoY}%`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Remove a inclinação suavemente quando o rato sai
+                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                // Reseta a posição do brilho para o centro
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
