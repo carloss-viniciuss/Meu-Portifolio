@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos | Carlos Vinicius</title>
+    <title>Meus Projetos | Carlos Vinicius</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Estilos exclusivos para a página de projetos se adaptarem ao seu CSS */
         .projetos-main {
             margin-top: 120px;
             padding: 40px 10%;
@@ -16,72 +15,204 @@
         
         .grid-projetos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+            perspective: 1000px; /* Ativa o espaço 3D global */
         }
 
+        /* CARD ULTRA-TECH UNIFICADO */
         .card-projeto {
-            background: rgba(17, 17, 17, 0.95);
-            border: 1px solid rgba(220, 53, 69, 0.2);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
+            background: rgba(8, 4, 4, 0.98);
+            border: 1px solid rgba(220, 53, 69, 0.15);
+            border-radius: 6px;
+            padding: 35px;
+            min-height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            
+            /* Suavidade na elevação 3D */
+            transition: 
+                transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.3s ease;
         }
 
+        /* 1. DINÂMICA 3D: Elevação Magnética + Sombra de Almofada Neon */
         .card-projeto:hover {
-            border-color: #dc3545;
-            box-shadow: 0 0 25px rgba(220, 53, 69, 0.4);
-            transform: translateY(-5px);
+            border-color: rgba(220, 53, 69, 0.5);
+            transform: translateY(-12px) translateZ(45px);
+            box-shadow: 
+                0 25px 35px rgba(0, 0, 0, 0.8), 
+                0 15px 45px rgba(220, 53, 69, 0.35);
+        }
+
+        /* 2. ENERGIA PASSANDO NAS BORDAS (Linha Neon Infinita) */
+        .card-projeto::before {
+            content: "";
+            position: absolute;
+            inset: -2px; /* Fica ligeiramente maior que o card */
+            border-radius: 8px;
+            padding: 2px; /* Espessura do feixe de energia */
+            background: linear-gradient(90deg, transparent, #ff001a, transparent, #ff001a, transparent);
+            background-size: 200% auto;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Ativa o fluxo de energia correndo nas bordas no hover */
+        .card-projeto:hover::before {
+            opacity: 1;
+            animation: fluxo_energia 2s linear infinite;
+        }
+
+        @keyframes fluxo_energia {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* ELEMENTOS INTERNOS DO CARD */
+        .topo-projeto {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .index-digital {
+            font-family: 'Courier New', Courier, monospace;
+            color: rgba(220, 53, 69, 0.3);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .card-projeto:hover .index-digital {
+            color: #ff001a;
+            text-shadow: 0 0 8px #ff001a;
         }
 
         .card-projeto h3 {
             color: #fff;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: 1.6rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .card-projeto h3 i {
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .card-projeto:hover h3 i {
+            color: #ff001a !important;
+            transform: scale(1.1);
         }
 
         .card-projeto p {
-            color: #b0b0b0;
+            color: #a0a0a0;
             font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
+        /* 3. LEDS DIGITAIS DE CARREGAMENTO (DATASTREAM) */
+        .datastream {
+            margin-bottom: 25px;
+        }
+        
+        .datastream-info {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            color: #444;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .card-projeto:hover .datastream-info {
+            color: #888;
+        }
+
+        .grid-blocos {
+            display: flex;
+            gap: 5px;
+        }
+
+        .bloco-led {
+            width: 16px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Os leds acendem em ordem linear quando o card levita */
+        .card-projeto:hover .bloco-led {
+            background: #dc3545;
+            box-shadow: 0 0 8px #dc3545;
+        }
+        .card-projeto:hover .bloco-led:nth-child(1) { transition-delay: 0.04s; }
+        .card-projeto:hover .bloco-led:nth-child(2) { transition-delay: 0.08s; }
+        .card-projeto:hover .bloco-led:nth-child(3) { transition-delay: 0.12s; }
+        .card-projeto:hover .bloco-led:nth-child(4) { transition-delay: 0.16s; }
+        .card-projeto:hover .bloco-led:nth-child(5) { transition-delay: 0.20s; }
+
+        /* TAGS TÁTICAS */
         .tags-projeto {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 25px;
         }
 
         .tags-projeto span {
-            color: #dc3545;
-            font-size: 0.8rem;
-            font-weight: 700;
-            background: rgba(220, 53, 69, 0.05);
-            padding: 4px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(220, 53, 69, 0.1);
+            color: #777;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2px 6px;
+            border-radius: 3px;
+            transition: all 0.3s;
         }
 
-        .btn-projeto-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .card-projeto:hover .tags-projeto span {
+            border-color: rgba(220, 53, 69, 0.25);
             color: #fff;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
         }
 
-        .btn-projeto-link:hover {
+        /* BOTÃO TERMINAL EXECUTÁVEL */
+        .btn-projeto-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             color: #dc3545;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 0.85rem;
+            border: 1px solid rgba(220, 53, 69, 0.25);
+            padding: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .card-projeto:hover .btn-projeto-link {
+            color: #fff;
+            border-color: #ff001a;
+            background: #dc3545;
+            box-shadow: 0 0 15px #dc3545;
         }
     </style>
 </head>
@@ -96,6 +227,7 @@
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#alvo-sobre">Sobre Mim</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificados.html">Certificados</a></li>
                 <li><a href="index.html#alvo-contato">Contato</a></li>
             </ul>
         </nav>
@@ -104,8 +236,8 @@
     <main class="projetos-main" style="background: transparent;">
         
         <div class="sobre_titulo">
-            <h1>Meus Projetos</h1>
-            <div aria-label="Seção de botões">
+            <h1>Terminais de Projetos</h1>
+            <div aria-label="Seção de decoração">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -116,43 +248,70 @@
             
             <div class="card-projeto">
                 <div>
-                    <h3><i class="fa-brands fa-python" style="color: #dc3545; margin-right: 8px;"></i> TátilQuiz</h3>
-                    <p>Um jogo que desenvolvi na cadeira de Projetos 1 da CESAR school baseado em Acessibilidade Visual.</p>
+                    <div class="topo-projeto">
+                        <h3><i class="fa-solid fa-microchip" style="color: #dc3545;"></i> TátilQuiz</h3>
+                        <span class="index-digital">// project_01</span>
+                    </div>
+                    <p>Um jogo de perguntas e respostas desenvolvido na cadeira de Projetos 1 da CESAR School, totalmente baseado no tato e na percepção sonora.</p>
+                    
+                    <div class="datastream">
+                        <div class="datastream-info"><span>Status: ONLINE</span><span>GP 11</span></div>
+                        <div class="grid-blocos">
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div class="tags-projeto">
                         <span>#C++</span>
                         <span>#Arduino</span>
-                        <span>#Acessibilidade</span>
-                        <span>#QuizEducativo</span>
+                        <span>#Acessibilidade Visual</span>
+                        <span>#Construção MDF</span>
                     </div>
-                    <a href="#" class="btn-projeto-link" target="_blank">
-                        VER_REPOSITORIO.sh <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <a href="galeria-tatil.html" class="btn-projeto-link">
+                        RUN: GALERIA_FOTOS.sh <i class="fa-solid fa-images"></i>
                     </a>
                 </div>
             </div>
 
             <div class="card-projeto">
                 <div>
-                    <h3><i class="fa-solid fa-microchip" style="color: #dc3545; margin-right: 8px;"></i> Hyrox Planner</h3>
-                    <p>Interface interativa de Academia, desenvolvida na cadeira de Fundamentos de Programação no 1º periodo na CESAR school</p>
+                    <div class="topo-projeto">
+                        <h3><i class="fa-brands fa-python" style="color: #dc3545;"></i> Hyrox Planner</h3>
+                        <span class="index-digital">// project_02</span>
+                    </div>
+                    <p>O Hyrox Planner é uma interface interativa de Academia, desenvolvida no 1º período da cadeira de Fundamentos de Programação na CESAR School.</p>
+                    
+                    <div class="datastream">
+                        <div class="datastream-info"><span>DATA_STREAM: SECURE</span><span>PORT_0B</span></div>
+                        <div class="grid-blocos">
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                            <div class="bloco-led"></div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div class="tags-projeto">
                         <span>#Python</span>
-                        <span>#ManipulaçãoArquivos</span>
-                        <span>#TrabalhoEquipe</span>
+                        <span>#File_Handling</span>
+                        <span>#TeamWork</span>
                     </div>
-                    <a href="#" class="btn-projeto-link" target="_blank">
-                        VER_REPOSITORIO.sh <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <a href="https://github.com" class="btn-projeto-link" target="_blank">
+                        RUN: REPOSITORIO.sh <i class="fa-solid fa-code-branch"></i>
                     </a>
                 </div>
             </div>
 
-
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
+        <div style="text-align: center; margin-top: 60px;">
             <a href="index.html#home" class="btn-cv"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
         </div>
 

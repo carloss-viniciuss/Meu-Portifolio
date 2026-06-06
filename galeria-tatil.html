@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria TátilQuiz | Carlos Vinicius</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Estilos em perfeita sintonia com a página de Projetos e Home */
+        .galeria-main {
+            margin-top: 120px;
+            padding: 40px 10%;
+            min-height: 85vh;
+        }
+        
+        .grid-fotos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .foto-item {
+            background: rgba(17, 17, 17, 0.95);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .foto-item:hover {
+            border-color: #dc3545;
+            box-shadow: 0 0 25px rgba(220, 53, 69, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .foto-container-galeria {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(220, 53, 69, 0.1);
+            position: relative; /* Necessário para posicionar as setas do carrossel */
+        }
+
+        /* Controla as imagens comuns e as do carrossel */
+        .foto-container-galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        /* Esconde os slides do carrossel por padrão */
+        .foto-container-galeria .slide-foto {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Mostra apenas a foto que tiver a classe ativo */
+        .foto-container-galeria .slide-foto.ativo {
+            display: block;
+        }
+
+        .foto-item:hover .foto-container-galeria img {
+            transform: scale(1.05); /* Zoom sutil na foto ao passar o mouse */
+        }
+
+        /* ESTILO DAS SETAS DO CARROSSEL */
+        .seta-carrossel {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            color: #fff;
+            font-size: 1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .seta-carrossel:hover {
+            background: #dc3545;
+            box-shadow: 0 0 10px #dc3545;
+            border-color: #fff;
+        }
+
+        .seta-esquerda { left: 10px; }
+        .seta-direita { right: 10px; }
+
+        .foto-item p {
+            padding: 20px;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: auto; /* Mantém os textos alinhados por baixo */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cyber-bg"></canvas>
+
+    <header>
+        <h1>CARLOS. <span>Dev</span></h1>
+        <nav>
+            <ul class="navegacao-primaria">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#alvo-sobre">Sobre Mim</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificados.html">Certificados</a></li>
+                <li><a href="index.html#alvo-contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="galeria-main" style="background: transparent;">
+        
+        <div class="sobre_titulo">
+            <h1>Galeria - TátilQuiz</h1>
+            <div aria-label="Seção de decoração">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="grid-fotos">
+            
+            <div class="foto-item">
+                <div class="foto-container-galeria">
+                    <img src="imagens/tatilquiz/ideia inicial.JPG" alt="Protótipo TátilQuiz">
+                </div>
+                <p>ideia inicial da estrutura do jogo, inicialmente pensado para 2 jogadores.</p>
+            </div>
+
+            <div class="foto-item">
+                <div class="foto-container-galeria">
+                    <img src="imagens/tatilquiz/ideia final.JPG" alt="Circuito TátilQuiz">
+                </div>
+                <p>Ideia final da estrutura do jogo, agora jogado de 1 - 4 jogadores.</p>
+            </div>
+
+            <div class="foto-item">
+                <div class="foto-container-galeria">
+                    <span class="seta-carrossel seta-esquerda" onclick="mudarFoto(this, -1)">&#10094;</span>
+                    <span class="seta-carrossel seta-direita" onclick="mudarFoto(this, 1)">&#10095;</span>
+
+                    <img src="imagens/tatilquiz/inicio confec.JPG" class="slide-foto ativo" alt="Construção 1">
+                    <img src="imagens/tatilquiz/inicio confec2.JPG" class="slide-foto" alt="Construção 2">
+                    <img src="imagens/tatilquiz/inicio confec 3.JPG" class="slide-foto" alt="Construção 3">
+                </div>
+                <p>Fase de construção do protótipo não funcional.</p>
+            </div>
+
+            <div class="foto-item">
+                <div class="foto-container-galeria">
+                    <img src="imagens/tatilquiz/apresentacao Sr1.JPG" alt="Circuito TátilQuiz">
+                </div>
+                <p>apresentação do SR1 (Status Report 1) na CESAR School</p>
+            </div>
+            
+            <div class="foto-item">
+                <div class="foto-container-galeria">
+                    <img src="imagens/tatilquiz/inicio montag.JPG" alt="Circuito TátilQuiz">
+                </div>
+                <p>Inicio da montagem do circuito lógico e código C++</p>
+            </div>
+            
+            <div class="foto-item">
+                <div class="foto-container-galeria">
+                    <img src="imagens/tatilquiz/inicio contrucao artefato.JPG" alt="Circuito TátilQuiz">
+                </div>
+                <p>Inicio da construção do artefato final</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="projetos.html" class="btn-cv"><i class="fa-solid fa-arrow-left"></i> Voltar para Projetos</a>
+        </div>
+
+    </main>
+
+    <script>
+        function mudarFoto(botao, direcao) {
+            const container = botao.parentElement;
+            const fotos = container.querySelectorAll('.slide-foto');
+            let indiceAtivo = 0;
+            
+            fotos.forEach((foto, index) => {
+                if (foto.classList.contains('ativo')) {
+                    indiceAtivo = index;
+                }
+            });
+
+            fotos[indiceAtivo].classList.remove('ativo');
+
+            let novoIndice = indiceAtivo + direcao;
+            if (novoIndice >= fotos.length) { novoIndice = 0; }
+            if (novoIndice < 0) { novoIndice = fotos.length - 1; }
+
+            fotos[novoIndice].classList.add('ativo');
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
