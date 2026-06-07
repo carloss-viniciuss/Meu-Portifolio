@@ -43,8 +43,6 @@
     </section>
 
     <main>
-        <div id="alvo-sobre"></div>
-
         <article id="sobre" aria-label="seção sobre mim" class="sobre">
             
             <div class="sobre_titulo">
@@ -63,22 +61,80 @@
             <div class="sobre_conteudo">
                 
                 <div class="sobre_texto" id="sobre-texto-inicio">
+                    
+                    <div id="alvo-sobre" style="scroll-margin-top: 255px;"></div>
                     <h1>I'm Python programmer - Carlos Vinicius</h1>
                     <p>Iniciei minha jornada na tecnologia aos 11 anos, movido pela curiosidade de entender como o mundo digital funcionava. Hoje, aos 18, sou graduando em Ciência da Computação na CESAR School, onde transformo essa paixão antiga em soluções reais.</p>
                     <br>
                     <p>Sou focado em programação Python, resolução de problemas complexos e entusiasta de Inteligência Artificial. Busco constantemente alinhar rigor técnico com inovação e criatividade, desenvolvendo uma postura adaptável e pronta para os desafios do mercado tecnológico.</p>
                 </div>
                 
-                <div id="alvo-contato"></div>
+                <div class="skills-container" style="margin-top: 30px; margin-bottom: 15px;">
+                    <h2 style="text-align: left; color: #fff; font-size: 1.4rem; margin-bottom: 15px;">Soft Skills</h2>
+                    <div class="floating-icons" style="display: flex; flex-wrap: wrap; gap: 12px;">
+                        <style>
+                            .soft-skill-badge {
+                                background: rgba(220, 53, 69, 0.05);
+                                border: 1px solid rgba(220, 53, 69, 0.25);
+                                color: #888;
+                                padding: 8px 15px;
+                                border-radius: 4px;
+                                font-size: 0.9rem;
+                                font-family: monospace;
+                                transition: all 0.3s ease;
+                                cursor: default;
+                                display: inline-flex;
+                                align-items: center;
+                            }
+                            .soft-skill-badge i {
+                                color: rgba(220, 53, 69, 0.6);
+                                margin-right: 8px;
+                                transition: all 0.3s ease;
+                            }
+                            .soft-skill-badge:hover {
+                                color: #fff !important;
+                                background: rgba(220, 53, 69, 0.2) !important;
+                                border-color: #dc3545 !important;
+                                transform: translateY(-3px);
+                                box-shadow: 0 0 12px rgba(220, 53, 69, 0.4);
+                            }
+                            .soft-skill-badge:hover i {
+                                color: #ff4d5e !important;
+                                text-shadow: 0 0 8px #dc3545;
+                            }
+                        </style>
 
-                <div class="skills-container" id="contato-inicio" style="border-top: 1px solid rgba(220, 53, 69, 0.1); padding-top: 20px; margin-top: 10px;">
-                    <h2 style="text-align: left; color: #fff; font-size: 1.4rem;">Contato</h2>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-brain"></i> Resolução de Problemas</span>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-user-gear"></i> Adaptabilidade</span>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-users"></i> Trabalho em Equipe</span>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-clock"></i> Gestão de Tempo</span>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-crown"></i> Liderança</span>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-bolt"></i> Proatividade</span>
+                        <span class="soft-skill-badge"><i class="fa-solid fa-shield-halved"></i> Resiliência</span>
+                    </div>
                 </div>
 
-                <div class="sobre_info" style="border-top: none; padding-top: 0; margin-top: -20px;">
-                    
+                <div class="skills-container" style="margin-bottom: 25px;">
+                    <h2>Tech Stack</h2>
+                    <div class="floating-icons">
+                        <div class="icon-box" data-name="Python"><i class="fa-brands fa-python"></i></div>
+                        <div class="icon-box" data-name="Figma"><i class="fa-brands fa-figma"></i></div>
+                        <div class="icon-box" data-name="VS Code"><i class="fa-solid fa-code"></i></div>
+                        <div class="icon-box" data-name="Arduino"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="icon-box" data-name="JavaScript"><i class="fa-brands fa-js"></i></div>
+                        <div class="icon-box" data-name="HTML5"><i class="fa-brands fa-html5"></i></div>
+                        <div class="icon-box" data-name="CSS3"><i class="fa-brands fa-css3-alt"></i></div>
+                    </div>
+                </div>
+                
+                <div id="alvo-contato" style="scroll-margin-top: 130px;"></div>
+
+                <div class="skills-container" id="contato-inicio" style="border-top: 1px solid rgba(220, 53, 69, 0.1); padding-top: 15px; margin-top: 0px;">
+                    <h2 style="text-align: left; color: #fff; font-size: 1.4rem;">Contato</h2>
+                </div>
+                
+                <div class="sobre_info" style="border-top: none; padding-top: 0; margin-top: -35px;">
                     <style>
-                        /* Estilos compartilhados pelos links interativos de contato */
                         .contato-link {
                             color: inherit;
                             text-decoration: none;
@@ -89,43 +145,38 @@
                             border-radius: 4px;
                             border: 1px solid transparent;
                         }
-                        /* Garante que os ícones fiquem alinhados com espaçamento idêntico */
                         .contato-link i {
                             margin-right: 10px !important; 
                             transition: all 0.3s ease;
                         }
-                        
-                        /* EFEITO 1: REAÇÃO DO LINK DO WHATSAPP (VERDE NEON) */
                         .wpp-hover:hover {
                             color: #25d366 !important;
-                            background: rgba(37, 211, 102, 0.1); /* Fundo sutil verde */
+                            background: rgba(37, 211, 102, 0.1);
                             border-color: rgba(37, 211, 102, 0.4);
-                            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3); /* Brilho verde */
-                            transform: translateX(5px); /* Desloca 5px para a direita (indicação tática) */
+                            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+                            transform: translateX(5px);
                         }
                         .wpp-hover:hover i {
                             color: #25d366 !important;
-                            text-shadow: 0 0 8px #25d366; /* Brilho neon no ícone do telefone */
+                            text-shadow: 0 0 8px #25d366;
                         }
-
-                        /* EFEITO 2: REAÇÃO DO LINK DO EMAIL (AZUL CYBERPUNK) */
                         .email-hover:hover {
                             color: #00bcff !important;
-                            background: rgba(0, 188, 255, 0.1); /* Fundo sutil azul */
+                            background: rgba(0, 188, 255, 0.1);
                             border-color: rgba(0, 188, 255, 0.4);
-                            box-shadow: 0 0 10px rgba(0, 188, 255, 0.3); /* Brilho azul */
-                            transform: translateX(5px); /* Desloca 5px para a direita sincronizado */
+                            box-shadow: 0 0 10px rgba(0, 188, 255, 0.3);
+                            transform: translateX(5px);
                         }
                         .email-hover:hover i {
                             color: #00bcff !important;
-                            text-shadow: 0 0 8px #00bcff; /* Brilho neon no ícone de envelope */
+                            text-shadow: 0 0 8px #00bcff;
                         }
                     </style>
 
                     <p style="margin-left: -8px; margin-bottom: 5px;">
                         <a href="https://api.whatsapp.com/send?phone=5581999704007" 
                            target="_blank" 
-                           rel="noopener noreferrer" /* Sandboxing de segurança: isola scripts entre abas */
+                           rel="noopener noreferrer"
                            class="contato-link wpp-hover" 
                            title="Chamar no WhatsApp">
                             <i class="fa-solid fa-phone"></i> <strong>Telefone:</strong> &nbsp;+55 81 99970-4007
@@ -147,70 +198,8 @@
                     <p style="padding-left: 8px;"><i class="fa-solid fa-globe" style="margin-right: 9px;"></i> <strong>Idiomas:</strong> PT (Fluente) / EN (Intermediário)</p>
                     <p style="padding-left: 8px;"><i class="fa-solid fa-calendar-days" style="margin-right: 11px;"></i> <strong>Nascimento:</strong> 27/09/2007</p>
                 </div>
-
-                <div class="skills-container" style="margin-top: 20px; margin-bottom: -15px;">
-                    <h2 style="text-align: left; color: #fff; font-size: 1.4rem; margin-bottom: 15px;">Soft Skills</h2>
-                    <div class="floating-icons" style="display: flex; flex-wrap: wrap; gap: 12px;">
-                        
-                        <style>
-                            /* Formatação inicial de cada etiqueta de soft skill */
-                            .soft-skill-badge {
-                                background: rgba(220, 53, 69, 0.05); /* Fundo vermelho quase invisível */
-                                border: 1px solid rgba(220, 53, 69, 0.25); /* Moldura vermelha opaca */
-                                color: #888; /* Texto em cinza neutro para dar contraste no acendimento */
-                                padding: 8px 15px;
-                                border-radius: 4px;
-                                font-size: 0.9rem;
-                                font-family: monospace; /* Fonte estilo terminal monoespaçado */
-                                transition: all 0.3s ease;
-                                cursor: default;
-                                display: inline-flex;
-                                align-items: center;
-                            }
-                            .soft-skill-badge i {
-                                color: rgba(220, 53, 69, 0.6);
-                                margin-right: 8px;
-                                transition: all 0.3s ease;
-                            }
-                            /* Efeito de Sobrecarga Neon ao passar o mouse sobre a Soft Skill */
-                            .soft-skill-badge:hover {
-                                color: #fff !important; /* Texto acende em branco puro */
-                                background: rgba(220, 53, 69, 0.2) !important; /* Preenchimento intensifica */
-                                border-color: #dc3545 !important; /* Moldura acende */
-                                transform: translateY(-3px); /* Eleva o badge sutilmente */
-                                box-shadow: 0 0 12px rgba(220, 53, 69, 0.4); /* Projeta reflexo neon */
-                            }
-                            .soft-skill-badge:hover i {
-                                color: #ff4d5e !important; /* Ícone ganha tom vermelho vivo */
-                                text-shadow: 0 0 8px #dc3545; /* Brilho neon interno no ícone */
-                            }
-                        </style>
-
-                        <span class="soft-skill-badge"><i class="fa-solid fa-brain"></i> Resolução de Problemas</span>
-                        <span class="soft-skill-badge"><i class="fa-solid fa-user-gear"></i> Adaptabilidade</span>
-                        <span class="soft-skill-badge"><i class="fa-solid fa-users"></i> Trabalho em Equipe</span>
-                        <span class="soft-skill-badge"><i class="fa-solid fa-clock"></i> Gestão de Tempo</span>
-                        <span class="soft-skill-badge"><i class="fa-solid fa-crown"></i> Liderança</span>
-                        <span class="soft-skill-badge"><i class="fa-solid fa-bolt"></i> Proatividade</span>
-                        <span class="soft-skill-badge"><i class="fa-solid fa-shield-halved"></i> Resiliência</span>
-                    </div>
-                </div>
-
-                <div class="skills-container" style="margin-bottom: -10px;">
-                    <h2>Tech Stack</h2>
-                    <div class="floating-icons">
-                        <div class="icon-box" data-name="Python"><i class="fa-brands fa-python"></i></div>
-                        <div class="icon-box" data-name="Figma"><i class="fa-brands fa-figma"></i></div>
-                        <div class="icon-box" data-name="VS Code"><i class="fa-solid fa-code"></i></div>
-                        <div class="icon-box" data-name="Arduino"><i class="fa-solid fa-microchip"></i></div>
-                        <div class="icon-box" data-name="JavaScript"><i class="fa-brands fa-js"></i></div>
-                        <div class="icon-box" data-name="HTML5"><i class="fa-brands fa-html5"></i></div>
-                        <div class="icon-box" data-name="CSS3"><i class="fa-brands fa-css3-alt"></i></div>
-                    </div>
-                </div>
                 
-                <div class="projetos-actions" style="margin-top: 50px;">
-                    
+                <div class="projetos-actions" style="margin-top: 25px;">
                     <a href="projetos.html" class="btn-tatico-hub">
                         <span class="btn-led"></span>
                         <span class="btn-text">ACESSAR PROJETOS.sh</span>
