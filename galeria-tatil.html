@@ -6,102 +6,114 @@
     <title>Galeria TátilQuiz | Carlos Vinicius</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
-        /* Estilos em perfeita sintonia com a página de Projetos e Home */
+        /* ==========================================================================
+           ESTILOS EM PERFEITA SINTONIA COM A PÁGINA DE PROJETOS E HOME
+           ========================================================================== */
         .galeria-main {
-            margin-top: 120px;
+            margin-top: 120px; /* Margem tática para o menu fixed superior não cobrir o título */
             padding: 40px 10%;
             min-height: 85vh;
         }
         
+        /* Grid responsivo para organizar os cards de fotos */
         .grid-fotos {
             display: grid;
+            /* Se a tela encolher, os itens se adaptam automaticamente respeitando o mínimo de 300px */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
 
+        /* Estrutura de cada card da galeria */
         .foto-item {
-            background: rgba(17, 17, 17, 0.95);
-            border: 1px solid rgba(220, 53, 69, 0.2);
+            background: rgba(17, 17, 17, 0.95); /* Fundo cinza escuro para manter o contraste dark */
+            border: 1px solid rgba(220, 53, 69, 0.2); /* Borda vermelha sutil */
             border-radius: 12px;
-            overflow: hidden;
+            overflow: hidden; /* Garante que o zoom da foto não sangre para fora do card */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Organiza em pilha para o truque do margin-top: auto funcionar */
         }
 
+        /* Efeito ao passar o mouse sobre o card da foto */
         .foto-item:hover {
-            border-color: #dc3545;
-            box-shadow: 0 0 25px rgba(220, 53, 69, 0.4);
-            transform: translateY(-5px);
+            border-color: #dc3545; /* Acende a borda em vermelho puro */
+            box-shadow: 0 0 25px rgba(220, 53, 69, 0.4); /* Projeta reflexo neon vermelho */
+            transform: translateY(-5px); /* Eleva o card levemente */
         }
 
+        /* Moldura de contenção da imagem */
         .foto-container-galeria {
             width: 100%;
-            height: 240px;
+            height: 240px; /* Fixa uma altura simétrica para todas as fotos da grade */
             overflow: hidden;
             border-bottom: 1px solid rgba(220, 53, 69, 0.1);
-            position: relative; /* Necessário para posicionar as setas do carrossel */
+            position: relative; /* CRUCIAL: Base de referência para o posicionamento absoluto das setas do carrossel */
         }
 
-        /* Controla as imagens comuns e as do carrossel */
+        /* Controla as propriedades das imagens padrão e do carrossel */
         .foto-container-galeria img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Recorta e centraliza a foto dinamicamente sem distorcer */
             object-position: center;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease; /* Suaviza o efeito de zoom */
         }
 
-        /* Esconde os slides do carrossel por padrão */
+        /* LÓGICA DO CARROSSEL: Esconde as fotos extras por padrão */
         .foto-container-galeria .slide-foto {
             display: none;
-            position: absolute;
+            position: absolute; /* Empilha as fotos uma em cima da outra dentro do container */
             top: 0;
             left: 0;
         }
 
-        /* Mostra apenas a foto que tiver a classe ativo */
+        /* Mostra em tela única exclusivamente a foto que receber a classe 'ativo' via JavaScript */
         .foto-container-galeria .slide-foto.ativo {
             display: block;
         }
 
+        /* Executa um leve zoom na imagem quando o usuário passa o mouse sobre o card */
         .foto-item:hover .foto-container-galeria img {
-            transform: scale(1.05); /* Zoom sutil na foto ao passar o mouse */
+            transform: scale(1.05);
         }
 
-        /* ESTILO DAS SETAS DO CARROSSEL */
+        /* DESIGN DAS SETAS NAVEGACIONAIS DO CARROSSEL DE FOTOS */
         .seta-carrossel {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%); /* Alinhamento vertical perfeito no centro da imagem */
+            background: rgba(0, 0, 0, 0.7); /* Fundo escuro transparente para não cobrir totalmente a foto */
             border: 1px solid rgba(220, 53, 69, 0.5);
             color: #fff;
             font-size: 1rem;
             width: 32px;
             height: 32px;
-            border-radius: 50%;
+            border-radius: 50%; /* Torna o botão um círculo perfeito */
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 10;
-            user-select: none;
+            z-index: 10; /* Garante que a seta fique acima das imagens empilhadas */
+            user-select: none; /* Impede que o texto da seta fique azul ao clicar rápido (bloqueia seleção de texto) */
         }
 
+        /* Acendimento neon da seta no hover */
         .seta-carrossel:hover {
             background: #dc3545;
             box-shadow: 0 0 10px #dc3545;
             border-color: #fff;
         }
 
+        /* Posicionamento tático nas laterais internas do container de fotos */
         .seta-esquerda { left: 10px; }
         .seta-direita { right: 10px; }
 
+        /* Descrições textuais localizadas na base dos cards */
         .foto-item p {
             padding: 20px;
             color: #b0b0b0;
@@ -109,16 +121,16 @@
             line-height: 1.5;
             text-align: center;
             background: rgba(0, 0, 0, 0.3);
-            margin-top: auto; /* Mantém os textos alinhados por baixo */
+            margin-top: auto; /* MACETE DE DIAGRAMAÇÃO: Empurra a caixa de texto sempre pro rodapé do card, deixando os botões alinhados horizontalmente mesmo se o texto for curto */
         }
     </style>
 </head>
 
 <body>
     <div class="page-overlay" id="pageOverlay">
-    <div class="glitch-noise"></div>
-    <div class="hacker-alert">SYSTEMA HACKEADO!_...</div>
-</div>
+        <div class="glitch-noise"></div>
+        <div class="hacker-alert">SYSTEMA HACKEADO!_...</div>
+    </div>
 
     <canvas id="cyber-bg"></canvas>
 
@@ -204,25 +216,36 @@
 
     <script>
         function mudarFoto(botao, direcao) {
+            // Pega o elemento pai direto do botão clicado (que é a div .foto-container-galeria)
             const container = botao.parentElement;
+            // Filtra e seleciona apenas as imagens que pertencem a ESSE carrossel específico
             const fotos = container.querySelectorAll('.slide-foto');
             let indiceAtivo = 0;
             
+            // Varre o array de fotos locais para descobrir qual imagem está na tela (tem a classe 'ativo')
             fotos.forEach((foto, index) => {
                 if (foto.classList.contains('ativo')) {
-                    indiceAtivo = index;
+                    indiceAtivo = index; // Salva a posição numérica atual da foto ativa
                 }
             });
 
+            // Apaga/remove a visibilidade da foto que estava ativa antes do clique
             fotos[indiceAtivo].classList.remove('ativo');
 
+            // Executa o cálculo para definir o próximo índice da imagem baseado na direção recebida
             let novoIndice = indiceAtivo + direcao;
+            
+            // TRUQUE DE RETORNO INFINITO (Looping circular do Array):
+            // Se avançar além da última foto, zera o contador e volta para o início (índice 0)
             if (novoIndice >= fotos.length) { novoIndice = 0; }
+            // Se recuar antes da primeira foto, joga o contador direto para a última posição da lista
             if (novoIndice < 0) { novoIndice = fotos.length - 1; }
 
+            // Adiciona a classe 'ativo' na nova foto selecionada, fazendo ela surgir na tela
             fotos[novoIndice].classList.add('ativo');
         }
     </script>
+    
     <script src="script.js"></script>
 </body>
 </html>

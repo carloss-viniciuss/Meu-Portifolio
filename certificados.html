@@ -6,39 +6,43 @@
     <title>Certificações | Carlos Vinicius</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
+        /* ==========================================================================
+           ESTILOS EM PERFEITA SINTONIA COM A PÁGINA DE PROJETOS E HOME
+           ========================================================================== */
         .certificados-main {
-            margin-top: 120px;
+            margin-top: 120px; /* Margem padrão para o menu superior fixo não sobrepor o título */
             padding: 40px 10%;
             min-height: 85vh;
         }
 
+        /* Grid inteligente para acomodar os certificados de forma responsiva */
         .grid-certificados {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-top: 50px;
-            /* Ativa o ambiente tridimensional global profunda */
-            perspective: 1000px;
+            perspective: 1000px; /* ATENÇÃO: Ativa o ambiente tridimensional global profundo para os cards inclinarem */
         }
 
-        /* CARD COM EFEITO TILT 3D EXCLUSIVO */
+        /* CARD COM EFEITO TILT 3D EXCLUSIVO (Efeito de placa física inclinável) */
         .card-certificado {
-            background: rgba(10, 5, 5, 0.98);
+            background: rgba(10, 5, 5, 0.98); /* Fundo preto puro para isolar as partículas do canvas */
             border: 1px solid rgba(220, 53, 69, 0.2);
             border-radius: 6px;
             padding: 30px;
             min-height: 280px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-between; /* Mantém o cabeçalho no topo e o link do PDF fixo na base */
             position: relative;
             cursor: pointer;
             
-            /* Crucial para os elementos filhos respeitarem as camadas 3D */
+            /* CRUCIAL: Diz ao navegador que os elementos filhos devem respeitar as camadas 3D (Z-index espacial) */
             transform-style: preserve-3d;
             
-            /* Suaviza o movimento ao entrar/sair do rato */
+            /* Suaviza as transições de borda e sombra. O transform NÃO fica aqui para não travar o JS */
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -47,13 +51,14 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
         }
 
-        /* Camada de brilho/reflexo holográfico dinâmico */
+        /* Camada de brilho/reflexo holográfico dinâmico (Lanterna que segue o mouse) */
         .brilho-3d {
             position: absolute;
             inset: 0;
+            /* Usa as variáveis CSS --mouse-x e --mouse-y injetadas em tempo real pelo JavaScript */
             background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(220, 53, 69, 0.15) 0%, transparent 60%);
             border-radius: 6px;
-            pointer-events: none;
+            pointer-events: none; /* Mouse ignora essa camada para não quebrar cliques nos links */
             z-index: 5;
         }
 
@@ -63,7 +68,7 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 20px;
-            transform: translateZ(30px); /* Salta para a frente no espaço 3D */
+            transform: translateZ(30px); /* MACETE 3D: Faz o ícone e a badge saltarem 30px para a frente do card físico */
         }
 
         .topo-cert i {
@@ -78,11 +83,12 @@
             text-shadow: 0 0 15px #ff001a;
         }
 
+        /* Etiqueta de validação estilo console de segurança */
         .status-badge {
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.7rem;
             font-weight: bold;
-            color: #00ff66;
+            color: #00ff66; /* Verde Matrix */
             border: 1px solid rgba(0, 255, 102, 0.3);
             padding: 3px 8px;
             background: rgba(0, 255, 102, 0.05);
@@ -90,7 +96,7 @@
         }
 
         .corpo-cert {
-            transform: translateZ(40px); /* Ganha ainda mais destaque que o topo */
+            transform: translateZ(40px); /* MACETE 3D: O texto salta ainda mais para a frente (40px), criando um efeito de paralaxe real */
         }
 
         .card-certificado h3 {
@@ -116,7 +122,7 @@
             letter-spacing: 1px;
         }
 
-        /* LINK DO DOCUMENTO EXECUTÁVEL */
+        /* LINK DO DOCUMENTO EXECUTÁVEL (.exe) */
         .btn-ver-credencial {
             display: inline-flex;
             align-items: center;
@@ -130,7 +136,7 @@
             padding-bottom: 4px;
             margin-top: 15px;
             transition: all 0.3s;
-            transform: translateZ(25px);
+            transform: translateZ(25px); /* Salta um pouco menos que o texto, mantendo a hierarquia de camadas */
         }
 
         .btn-ver-credencial:hover {
@@ -143,9 +149,9 @@
 
 <body>
     <div class="page-overlay" id="pageOverlay">
-    <div class="glitch-noise"></div>
-    <div class="hacker-alert">SYSTEMA HACKEADO!_...</div>
-</div>
+        <div class="glitch-noise"></div>
+        <div class="hacker-alert">SYSTEMA HACKEADO!_...</div>
+    </div>
 
     <canvas id="cyber-bg"></canvas>
 
@@ -197,7 +203,7 @@
                         <span class="status-badge">// VERIFICADO</span>
                     </div>
                     <div class="corpo-cert">
-                        <h3>Palestra Cybersegurança / Neurodesign</h3>
+                        <h3>Cybersegurança / Neurodesign</h3>
                         <p>Palestra sobre a importância do fator humano na Cybersegurança e a ligação do Neurodesign na prevenção de ataques.</p>
                         <span class="instituicao-tag">> CESAR Beat</span>
                     </div>
@@ -207,7 +213,7 @@
                 </a>
             </div>
 
-             <div class="card-certificado js-tilt-card">
+            <div class="card-certificado js-tilt-card">
                 <div class="brilho-3d"></div>
                 <div>
                     <div class="topo-cert">
@@ -270,39 +276,47 @@
     </main>
 
     <script>
+        // Captura todos os cards que possuem a classe tática identificadora
         const cards = document.querySelectorAll('.js-tilt-card');
 
         cards.forEach(card => {
+            // Monitora o deslocamento milimétrico do cursor em cima da área do card
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 
-                // Posição do rato relativa ao cartão (0 até o tamanho máximo)
+                // Mapeia a posição exata do cursor X e Y em pixels relativa aos limites do cartão (0 até largura/altura)
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                // Calcula o ponto central do cartão
+                // Encontra as coordenadas do ponto central exato do cartão (Eixo de rotação neutro)
                 const centroX = rect.width / 2;
                 const centroY = rect.height / 2;
                 
-                // Define a agressividade da rotação (números maiores inclinam menos)
+                // REGULADOR DE AGRESSIVIDADE DO TILT: Números maiores reduzem a rotação, deixando o efeito mais suave e elegante
                 const forcaRotacao = 15; 
+                
+                // Calcula os graus matemáticos de inclinação baseando-se na distância do cursor em relação ao centro
                 const rotateX = (centroY - y) / forcaRotacao;
                 const rotateY = (x - centroX) / forcaRotacao;
                 
-                // Aplica a inclinação ao elemento físico
+                // Injeta a transformação física diretamente na propriedade inline do elemento
                 card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
                 
-                // Mapeia as coordenadas para o gradiente de brilho CSS (em percentagem)
+                // CALCULO HOLOGRÁFICO: Converte a posição do mouse em percentual de 0 a 100%
                 const brilhoX = (x / rect.width) * 100;
                 const brilhoY = (y / rect.height) * 100;
+                
+                // Seta as propriedades customizadas que alimentam o radial-gradient do CSS (.brilho-3d)
                 card.style.setProperty('--mouse-x', `${brilhoX}%`);
                 card.style.setProperty('--mouse-y', `${brilhoY}%`);
             });
 
+            // Monitora o exato momento em que o cursor deixa a área física do cartão
             card.addEventListener('mouseleave', () => {
-                // Remove a inclinação suavemente quando o rato sai
+                // Executa uma transição suave de retorno resetando os eixos de rotação para zero plano
                 card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-                // Reseta a posição do brilho para o centro
+                
+                // Centraliza a lanterna de gradiente holográfico de volta na posição morta (50% centro)
                 card.style.setProperty('--mouse-x', '50%');
                 card.style.setProperty('--mouse-y', '50%');
             });

@@ -1,60 +1,67 @@
+/* ==========================================================================
+   MINHAS CONFIGURAÇÕES GERAIS E RESET DE PADDING/MARGIN
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght=200;300;400;700;900&display=swap');
 
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+    box-sizing: border-box; /* Garante que a borda e o padding não quebrem a largura dos elementos */
+    list-style: none; /* Arranca aquelas bolinhas feias de listas (ul) */
+    text-decoration: none; /* Remove o sublinhado padrão de links (a) */
+    font-family: 'Poppins', sans-serif; /* Minha fonte principal do site */
+    scroll-behavior: smooth; /* Deixa o efeito de rolagem da tela suave ao clicar no menu */
 }
 
 body {
-    background-color: #050505;
-    color: #fff;
-    overflow-x: hidden;
+    background-color: #050505; /* Fundo quase totalmente preto para destacar o tema dark */
+    color: #fff; /* Texto padrão branco */
+    overflow-x: hidden; /* Evita que o site crie aquela barra de rolagem horizontal horrorosa */
 }
 
-/* Fundo de linhas em movimento */
+/* ==========================================================================
+   MEU CANVAS DE FUNDO (PARTÍCULAS GERADAS VIA JS)
+   ========================================================================== */
 #cyber-bg {
-    position: fixed;
+    position: fixed; /* Fixa o fundo na tela para ele não rodar junto com o scroll */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
-    pointer-events: none;
+    z-index: -1; /* Joga para trás de absolutamente tudo no site */
+    pointer-events: none; /* Faz o mouse ignorar o canvas (consegue clicar nos links por cima dele) */
 }
 
-/* HEADER */
+/* ==========================================================================
+   HEADER (BARRA DE NAVEGAÇÃO SUPERIOR FIXED)
+   ========================================================================== */
 header {
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 20px 10%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo preto com transparência para o efeito blur */
+    backdrop-filter: blur(10px); /* Efeito de vidro jateado (desfoca o que passa por trás) */
+    padding: 20px 10%; /* Espaçamento interno nas laterais para alinhar o conteúdo */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: fixed;
+    justify-content: space-between; /* Joga a logo para a esquerda e o menu para a direita */
+    position: fixed; /* Deixa o menu grudado no topo ao rolar a página */
     top: 0;
     width: 100%;
-    z-index: 100;
-    border-bottom: 1px solid rgba(220, 53, 69, 0.2);
+    z-index: 100; /* Garante que o menu sempre fique por cima do resto do conteúdo */
+    border-bottom: 1px solid rgba(220, 53, 69, 0.2); /* Linha vermelha bem sutil no fundo do menu */
 }
 
 header h1 {
-    color: #dc3545;
+    color: #dc3545; /* Cor vermelha principal do meu portfólio */
     font-size: 1.8rem;
-    font-weight: 900;
+    font-weight: 900; /* Deixa a fonte bem grossa e marcante */
 }
 
 header span {
-    color: #fff;
+    color: #fff; /* Parte ".Dev" da logo em branco */
 }
 
 header .navegacao-primaria {
     display: flex;
-    gap: 25px;
+    gap: 25px; /* Espaço exato entre cada link do menu */
 }
 
 header .navegacao-primaria li a {
@@ -62,19 +69,19 @@ header .navegacao-primaria li a {
     font-size: 1.1rem;
     position: relative;
     padding: 5px 0;
-    transition: color 0.3s;
+    transition: color 0.3s; /* Suaviza a troca de cor no hover */
 }
 
-/* Efeito futurista no Menu (Linha que expande) */
+/* Efeito futurista de linha neon que expande debaixo do menu */
 header .navegacao-primaria li a::after {
     content: '';
     position: absolute;
-    width: 0;
+    width: 0; /* Começa zerada (invisível) */
     height: 20px;
     bottom: -2px;
     left: 0;
     background-color: #dc3545;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Controla a velocidade da expansão */
     z-index: -1;
     opacity: 0;
 }
@@ -83,22 +90,25 @@ header .navegacao-primaria li a:hover {
     color: #fff;
 }
 
+/* Quando passa o mouse, a linha do menu estica até 100% e ganha brilho */
 header .navegacao-primaria li a:hover::after {
     width: 100%;
     height: 2px;
     opacity: 1;
-    box-shadow: 0 0 10px #dc3545;
+    box-shadow: 0 0 10px #dc3545; /* Brilho neon na linha */
 }
 
-/* SEÇÃO HOME */
+/* ==========================================================================
+   SEÇÃO HOME (BOAS-VINDAS E APRESENTAÇÃO PRINCIPAL)
+   ========================================================================== */
 .section-div {
-    animation: inicializar .7s forwards;
+    animation: inicializar .7s forwards; /* Dispara a animação de surgir de cima para baixo */
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 150px 40px 80px 40px;
+    padding: 150px 40px 80px 40px; /* Padding de 150px no topo para o menu fixo não cobrir as frases */
     min-height: 80vh;
 }
 
@@ -112,6 +122,7 @@ header .navegacao-primaria li a:hover::after {
     font-size: 3rem;
 }
 
+/* Meu botão clássico de Download de Currículo */
 .btn-cv {
     display: inline-block;
     margin-top: 20px;
@@ -121,22 +132,23 @@ header .navegacao-primaria li a:hover::after {
     border: 2px solid #dc3545;
     background: transparent;
     transition: 0.3s;
-    box-shadow: 0 0 10px rgba(220, 53, 69, 0.2);
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.2); /* Sombra interna vermelha de leve */
 }
 
+/* Efeito de preenchimento e elevação do botão ao passar o mouse */
 .btn-cv:hover {
     background-color: #dc3545;
-    box-shadow: 0 0 20px #dc3545;
-    transform: translateY(-3px);
+    box-shadow: 0 0 20px #dc3545; /* Brilho expande no hover */
+    transform: translateY(-3px); /* Sobe o botão em 3 pixels (efeito flutuante) */
 }
 
-/* Efeito na Foto Principal */
+/* Efeito de pulso neon na moldura da minha foto redonda */
 .foto-container {
     position: relative;
     border-radius: 50%;
     padding: 10px;
     box-shadow: 0 0 30px rgba(220, 53, 69, 0.5);
-    animation: pulsoNeon 3s infinite ease-in-out;
+    animation: pulsoNeon 3s infinite ease-in-out; /* Faz o brilho pulsar infinitamente */
 }
 
 .foto-container img {
@@ -145,9 +157,11 @@ header .navegacao-primaria li a:hover::after {
     display: block;
 }
 
-/* SESSÃO SOBRE MIM CORRIGIDA (SEM O ESPAÇO VAZIO) */
+/* ==========================================================================
+   SEÇÃO SOBRE MIM e ARTIGOS DE CONTEÚDO
+   ========================================================================== */
 main {
-    background-color: rgba(17, 17, 17, 0.95);
+    background-color: rgba(17, 17, 17, 0.95); /* Fundo um pouco mais claro que o body para criar camadas */
     padding: 80px 0;
 }
 
@@ -155,14 +169,14 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.8fr;
+    grid-template-columns: 1fr 1.8fr; /* Divide em duas colunas assimétricas (foto menor, textos maiores) */
     gap: 50px;
     padding: 40px;
-    align-items: stretch; 
+    align-items: stretch; /* Garante que os blocos fiquem emparelhados de forma simétrica */
 }
 
 .sobre_titulo {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; /* Força o título a ocupar as duas colunas do grid (centralizado no topo) */
     text-align: center;
     margin-bottom: 40px;
 }
@@ -173,6 +187,7 @@ main {
     margin-bottom: 10px;
 }
 
+/* Aqueles tracinhos de detalhe decorativo abaixo do título da seção */
 .sobre_titulo span {
     display: inline-block;
     height: 4px;
@@ -182,10 +197,11 @@ main {
     box-shadow: 0 0 10px #dc3545;
 }
 
+/* Estilização da foto de perfil quadrada de dentro do Sobre Mim */
 .foto-container-sobre img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Recorta e adapta a imagem para não distorcer o rosto */
     object-position: center;
     border-radius: 15px;
     border: 1px solid rgba(220, 53, 69, 0.3);
@@ -195,7 +211,7 @@ main {
 .sobre_conteudo {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 40px; /* Organiza os blocos internos em pilha vertical com espaçamento constante */
 }
 
 .sobre_texto h1 {
@@ -205,16 +221,17 @@ main {
 }
 
 .sobre_texto p {
-    color: #b0b0b0;
-    line-height: 1.6;
+    color: #b0b0b0; /* Tom cinza claro para a leitura dos parágrafos ficar confortável */
+    line-height: 1.6; /* Aumenta o espaçamento entre as linhas do texto */
     font-size: 1.05rem;
 }
 
+/* Painel de dados pessoais (Telefone, e-mail, etc) organizado em duas colunas */
 .sobre_info {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Divide os dados em duas colunas de tamanhos iguais */
     gap: 20px;
-    border-top: 1px solid rgba(220, 53, 69, 0.1);
+    border-top: 1px solid rgba(220, 53, 69, 0.1); /* Divisor sutil no topo do bloco */
     padding-top: 20px;
 }
 
@@ -227,12 +244,14 @@ main {
 }
 
 .sobre_info i {
-    color: #dc3545;
+    color: #dc3545; /* Ícones dos dados de contato em vermelho */
     font-size: 1.2rem;
-    width: 20px;
+    width: 20px; /* Fixa uma largura para os textos começarem todos na mesma coluna horizontal */
 }
 
-/* CONTAINER DE ÍCONES FLUTUANTES */
+/* ==========================================================================
+   MEUS CONTAINERS DE SKILLS (TECH STACK / HARD SKILLS)
+   ========================================================================== */
 .skills-container {
     margin-top: 10px;
     border-top: 1px solid rgba(220, 53, 69, 0.1);
@@ -250,10 +269,11 @@ main {
     display: flex;
     justify-content: flex-start;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que os ícones quebrem de linha se a tela for pequena */
     padding-bottom: 20px;
 }
 
+/* Caixinhas escuras individuais onde ficam as marcas das tecnologias (Python, JS, etc) */
 .icon-box {
     background: rgba(0, 0, 0, 0.7);
     border: 2px solid rgba(220, 53, 69, 0.2);
@@ -267,42 +287,44 @@ main {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition: all 0.4s ease;
     cursor: pointer;
-    animation: flutuar 4s ease-in-out infinite;
+    animation: flutuar 4s ease-in-out infinite; /* Efeito eterno de flutuação em onda */
 }
 
 .icon-box i {
     font-size: 2rem;
-    color: #b0b0b0;
+    color: #b0b0b0; /* Ícones começam cinza e sem brilho */
     transition: all 0.3s ease;
 }
 
+/* Efeito de acendimento neon ao passar o mouse na caixinha da skill */
 .icon-box:hover {
-    border-color: #dc3545;
-    box-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
-    transform: scale(1.1) translateY(-5px) !important;
+    border-color: #dc3545; /* Acende a borda em vermelho */
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.6); /* Cria o reflexo vermelho em volta */
+    transform: scale(1.1) translateY(-5px) !important; /* Aumenta e sobe o card na marra */
 }
 
 .icon-box:hover i {
-    color: #dc3545;
-    text-shadow: 0 0 8px #dc3545;
+    color: #dc3545; /* O logo da tecnologia fica vermelho */
+    text-shadow: 0 0 8px #dc3545; /* Brilho neon interno no próprio ícone */
 }
 
+/* Cria aquela tag flutuante com o nome da skill que aparece abaixo do card no hover */
 .icon-box::after {
-    content: attr(data-name);
+    content: attr(data-name); /* Puxa o texto direto do atributo 'data-name' que configurei no HTML */
     position: absolute;
     bottom: -25px;
     font-size: 0.75rem;
     color: #dc3545;
-    opacity: 0;
+    opacity: 0; /* Começa invisível */
     transition: 0.3s;
     font-weight: 700;
 }
 
 .icon-box:hover::after {
-    opacity: 1;
+    opacity: 1; /* Torna o texto legível no hover */
 }
 
-/* Sincronia descompassada da flutuação */
+/* Truque de delay: descompassa o tempo da animação de cada card para criar o efeito de onda fluida */
 .icon-box:nth-child(1) { animation-delay: 0s; }
 .icon-box:nth-child(2) { animation-delay: 0.4s; }
 .icon-box:nth-child(3) { animation-delay: 0.8s; }
@@ -311,7 +333,9 @@ main {
 .icon-box:nth-child(6) { animation-delay: 2s; }
 .icon-box:nth-child(7) { animation-delay: 2.4s; }
 
-/* BOTÃO DE PROJETOS VELHO (Mantido se houver herança na página) */
+/* ==========================================================================
+   ESTILO DO BOTÃO ANTIGO DE PROJETOS (Mantido para compatibilidade histórica do tema)
+   ========================================================================== */
 .projetos-link-container {
     margin-top: 30px;
     border-top: 1px solid rgba(220, 53, 69, 0.1);
@@ -354,7 +378,10 @@ main {
     color: #fff;
 }
 
-/* MARGENS TÁTICAS DE LINKS INTERNOS */
+/* ==========================================================================
+   MINHAS MARGENS TÁTICAS PARA AJUSTAR O ALVO DOS LINKS DE SCROLL INTERNO
+   ========================================================================== */
+/* Evita que o cabeçalho fixo tampe o início dos títulos ao usar links com '#' */
 #alvo-sobre {
     display: block;
     position: relative;
@@ -368,42 +395,45 @@ main {
 }
 
 /* ==========================================================================
-   ANIMAÇÃO HACKER: SYSTEM BREACH / GLITCH TRANSITION
+   ESTRUTURA DO GLITCH SCREEN: MEU SISTEMA DE TRANSIÇÃO HACKER TERMINAL
    ========================================================================== */
 .page-overlay {
     position: fixed;
     inset: 0;
-    z-index: 99999;
+    z-index: 99999; /* Fica acima de qualquer menu ou elemento do site */
     background: transparent;
-    pointer-events: none;
+    pointer-events: none; /* Bloqueado por padrão para conseguir mexer no site normalmente */
     overflow: hidden;
     transition: background 0.2s ease;
 }
 
+/* Injetado via JavaScript quando o usuário clica para mudar de página */
 .page-overlay.ativo {
-    background: #020202;
-    pointer-events: all;
+    background: #020202; /* Escurece a tela totalmente */
+    pointer-events: all; /* Trava todos os cliques do usuário no site (indisponibiliza o sistema) */
 }
 
+/* Efeito de linhas horizontais de TV velha e ruído cromático analógico */
 .glitch-noise {
     position: absolute;
     inset: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
                 linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 4px, 6px 100%;
+    background-size: 100% 4px, 6px 100%; /* Tamanho das linhas de interferência */
     opacity: 0;
 }
 
 .page-overlay.ativo .glitch-noise {
     opacity: 1;
-    animation: noise-move 0.2s infinite;
+    animation: noise-move 0.2s infinite; /* Faz a estática se mover freneticamente */
 }
 
+/* Centralização perfeita do painel de aviso de invasão de sistema */
 .hacker-alert {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal de comandos */
     font-size: 2.2rem;
     color: #ff001a;
     font-weight: bold;
@@ -414,24 +444,26 @@ main {
     z-index: 999999;
 }
 
+/* Disparado junto com a ativação do blackout */
 .page-overlay.ativo .hacker-alert {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
-    animation: flash-text 0.15s infinite alternate;
+    animation: flash-text 0.15s infinite alternate; /* Faz o aviso piscar em ritmo de curto-circuito */
 }
 
+/* Injetado no <body> via JS para chacoalhar a tela e mudar as cores do site na hora do clique */
 .body-glitch-active {
     animation: screen-shake 0.3s cubic-bezier(.36,.07,.19,.97) both infinite;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    filter: invert(0.1) sepia(0.2) saturate(2) hue-rotate(330deg);
+    filter: invert(0.1) sepia(0.2) saturate(2) hue-rotate(330deg); /* Altera radicalmente a paleta de cores para o vermelho instável */
 }
 
 /* ==========================================================================
-   CONTEÚDO FINAL: BOTÕES TÁTICOS GIGANTES E EMPILHADOS (LIMPO E SINCRO)
+   CONTEÚDO FINAL: MEUS BOTÕES TÁTICOS GIGANTES DE PROJETOS E CERTIFICADOS
    ========================================================================== */
 
-/* Container que organiza a pilha vertical */
+/* Caixa mãe que empilha verticalmente os botões .sh e .bin */
 .projetos-actions {
     display: flex;
     flex-direction: column; 
@@ -441,7 +473,7 @@ main {
     width: 100%; 
 }
 
-/* Base Comum dos Dois Botões Gigantes */
+/* DNA base dos dois botões de navegação avançada do portfólio */
 .btn-tatico-hub {
     display: inline-flex;
     align-items: center;
@@ -452,7 +484,7 @@ main {
     border: 1px solid rgba(220, 53, 69, 0.4);
     color: #fff;
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace; /* Aparência de console militar/hacker */
     font-size: 1.1rem; 
     font-weight: bold;
     letter-spacing: 3px; 
@@ -460,18 +492,18 @@ main {
     position: relative;
     transition: all 0.3s ease;
     width: 100%;       
-    max-width: 750px;  
+    max-width: 750px; /* Impede os botões de estourarem o tamanho estético ideal em monitores ultra-wide */
     box-sizing: border-box;
 }
 
-/* Configurações do Botão 1 (Vermelho/Projetos) no estado Normal e Hover */
+/* Comportamentos do Botão 1: Projetos.sh (Tema Vermelho) */
 .btn-tatico-hub:not(.btn-secundario-cyber):hover {
     border-color: #ff001a;
     box-shadow: 0 0 25px rgba(255, 0, 26, 0.25);
     transform: translateY(-2px);
 }
 
-/* Configurações do Botão 2 (Azul/Certificados) no estado Normal e Hover */
+/* Comportamentos do Botão 2: Certificados.bin (Tema Azul Ciano Futurista) */
 .btn-secundario-cyber {
     border-color: rgba(0, 242, 254, 0.4);
 }
@@ -483,56 +515,61 @@ main {
 }
 
 /* ==========================================================================
-   SISTEMA DE LEDS NEON REFORÇADOS (SUPER BRILHO ATIVADO)
+   SISTEMA DE LEDS NEON EMBUTIDOS NOS BOTÕES (MECÂNICA DE RENDER DO TEMA)
    ========================================================================== */
 
-/* LED 1: Vermelho Inteligente */
+/* LED Vermelho padrão do painel */
 .btn-led {
     width: 10px; 
     height: 10px;
     background: #ff001a;
     border-radius: 50%;
-    box-shadow: 0 0 8px #ff001a, 0 0 18px #ff0000; /* Dupla blindagem de brilho */
+    box-shadow: 0 0 8px #ff001a, 0 0 18px #ff0000; /* Camada dupla de neon para intensificar a emissão de luz */
     animation: pulse-led 1.5s infinite alternate;
     transition: all 0.3s ease;
 }
 
-/* Reação do LED Vermelho quando passa o mouse no Botão */
+/* Sobrecarga do LED vermelho ao passar o mouse: a lâmpada esquenta para branco e o neon explode de brilho */
 .btn-tatico-hub:not(.btn-secundario-cyber):hover .btn-led {
     background: #fff; 
     box-shadow: 0 0 12px #ff001a, 0 0 25px #ff0000, 0 0 40px #ff0000;
 }
 
-/* LED 2: Azul Ciano Inteligente */
+/* LED Ciano do painel de certificados */
 .btn-led.led-azul {
     background: #00f2fe;
     box-shadow: 0 0 8px #00f2fe, 0 0 18px #00c6ff;
 }
 
-/* Reação do LED Azul quando passa o mouse no Botão */
+/* Sobrecarga do LED azul no hover do botão de certificados */
 .btn-secundario-cyber:hover .led-azul {
     background: #fff; 
     box-shadow: 0 0 12px #00f2fe, 0 0 25px #00f2fe, 0 0 40px #00c6ff;
 }
 
 /* ==========================================================================
-   KEYFRAMES DAS ANIMAÇÕES
+   LÓGICA MATEMÁTICA E TIMING DAS ANIMAÇÕES (KEYFRAMES)
    ========================================================================== */
+
+/* Cria o efeito levitando suave dos cards de tecnologia */
 @keyframes flutuar {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-8px); } /* Sobe 8px de forma amortecida */
 }
 
+/* Efeito de queda controlada e ganho de opacidade para carregar a home */
 @keyframes inicializar {
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Controle do pulso radial da minha foto principal */
 @keyframes pulsoNeon {
     0%, 100% { box-shadow: 0 0 20px rgba(220, 53, 69, 0.4); transform: scale(1); }
     50% { box-shadow: 0 0 40px rgba(220, 53, 69, 0.8); transform: scale(1.02); }
 }
 
+/* Coordenadas aleatórias 3D para chacoalhar violentamente o site no efeito de quebra de sistema */
 @keyframes screen-shake {
     10%, 90% { transform: translate3d(-2px, 1px, 0) rotate(0.5deg); }
     20%, 80% { transform: translate3d(4px, -2px, 0) rotate(-0.5deg); }
@@ -540,16 +577,19 @@ main {
     40%, 60% { transform: translate3d(5px, -1px, 0) rotate(1deg); }
 }
 
+/* Deslocamento infinito da textura de estática e ruído analógico */
 @keyframes noise-move {
     0% { background-position: 0 0; }
     100% { background-position: 10px 20px; }
 }
 
+/* Controle do piscado de luz e sombra do alerta de invasão */
 @keyframes flash-text {
     0% { opacity: 0.2; text-shadow: 0 0 5px #ff001a; }
     100% { opacity: 1; text-shadow: 0 0 20px #ff001a, 0 0 30px #ff0000; }
 }
 
+/* Escalonamento sutil e variação de brilho das lâmpadas de LED quando em repouso */
 @keyframes pulse-led {
     0% { opacity: 0.5; transform: scale(0.95); }
     100% { opacity: 1; transform: scale(1.05); }
