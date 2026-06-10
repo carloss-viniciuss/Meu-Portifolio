@@ -4,14 +4,17 @@ Bem-vindo ao meu portfólio! Este projeto é um website pessoal desenvolvido com
 
 ## 📊 Composição do Projeto
 
-- **HTML**: 62.8%
-- **CSS**: 24.2%
-- **JavaScript**: 13%
+- **HTML**: 63.4%
+- **CSS**: 23.8%
+- **JavaScript**: 12.8%
 
 ## 📝 Histórico de Commits
 
 | Data | Mensagem | Commit |
 |------|----------|--------|
+| 2026-06-10 14:40:29 | ajuste no linkedin | [eee38ee](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/eee38ee6e85858e6123ab73797e2e4818a7eed07) |
+| 2026-06-10 14:36:13 | atualizacoes | [ad40ef5](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/ad40ef590fd8c4450b263b8ec084e3e976f1d9c9) |
+| 2026-06-07 17:17:10 | docs: preencher README com histórico de commits | [280673c](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/280673ce20401fdc81aec8481c3a4df1fd7e0b44) |
 | 2026-06-07 16:44:51 | ajustes de layout | [7436b44](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/7436b44932932d6e8e6bcb34becaac1280f0b2a6) |
 | 2026-06-07 14:47:15 | adicao de foto a galeria | [e81a3dd](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/e81a3dd2a5f116992b101af42fa6c51f68295c06) |
 | 2026-06-07 14:34:36 | ajuste de layout | [f62eb55](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/f62eb5567f165feb4104e46a410d01755132dde9) |
@@ -20,11 +23,6 @@ Bem-vindo ao meu portfólio! Este projeto é um website pessoal desenvolvido com
 | 2026-06-06 20:44:13 | configuracoes finais | [16eb8a5](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/16eb8a562c386d3930e4be6b22b5dd9f0ba64806) |
 | 2026-06-06 20:31:48 | criacao do botao pra certificados | [1d80f01](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/1d80f01beaf4fe77fbcf7ff258e9433a313f657f) |
 | 2026-06-06 20:11:13 | animaçào de trasnicao | [de0c377](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/de0c37726e7486898b8d9ab7658f8a6fafca8f18) |
-| 2026-06-06 19:48:30 | adicao da aba certificados e suas animacoes | [d8a09b9](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/d8a09b9490012c20db30a7fe24cd864333439132) |
-| 2026-06-06 19:12:07 | melhoria nas animaçãoes na pagina de projetos | [6f11a63](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/6f11a63cf16f8dca26b746cae2299a4f280dd425) |
-| 2026-06-06 16:22:30 | pagina de projetos | [ad3f9da](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/ad3f9dac1e4cb9a81299ba11b3e7b5ee2c2bb482) |
-| 2026-06-06 15:46:14 | ajuste dos botoes no menu principal | [b8e71ee](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/b8e71eeb1e169ebdd4a90c07040fb9e231aa2c11) |
-| 2026-06-06 15:02:59 | pagina inicial | [b34793](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/b34793458f6722c3f73396505738357a4046d412) |
 
 ## 📌 Principais Funcionalidades
 
@@ -34,6 +32,7 @@ Bem-vindo ao meu portfólio! Este projeto é um website pessoal desenvolvido com
 - 📂 Página de projetos com melhorias de animação
 - 📱 Layout responsivo e ajustes visuais
 - 💬 Comentários e soft skills
+- 🔗 Links para redes sociais (LinkedIn)
 
 ## 👤 Autor
 
