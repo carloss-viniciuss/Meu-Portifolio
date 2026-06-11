@@ -126,7 +126,7 @@ const typedEl = document.getElementById('typed');
 // Lista com as frases que vão ficar alternando em loop infinito no meu cabeçalho
 const phrases = [
   'Graduando em Ciência da Computação',
-  'CESAR School Student',
+  'Estudante da CESAR school',
   'Entusiasta de IA',
   'Programador Python',
 ];
