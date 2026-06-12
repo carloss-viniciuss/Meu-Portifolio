@@ -8,94 +8,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
-        /* ==========================================================================
-           ESTILOS EXCLUSIVOS DA MINHA GRADE E DOS CARDS DE PROJETOS
-           ========================================================================== */
-        
-        /* Afasto o conteúdo principal do topo para o menu fixo não cobrir o título */
         .projetos-main {
             margin-top: 120px;
             padding: 40px 10%;
-            min-height: 85vh; /* Garante que o fundo cubra quase toda a tela mesmo com poucos projetos */
+            min-height: 85vh;
         }
         
-        /* Configuração do meu grid inteligente de projetos */
         .grid-projetos {
             display: grid;
-            /* Auto-fit quebra a linha sozinho e adapta os cards se a tela encolher (mínimo de 340px por card) */
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 50px; /* Espaçamento simétrico entre os cards */
+            gap: 50px;
             margin-top: 50px;
-            perspective: 1000px; /* ATENÇÃO: Ativa o espaço 3D global para os efeitos de profundidade funcionarem */
+            perspective: 1000px;
         }
 
-        /* MEU CARD ULTRA-TECH UNIFICADO */
         .card-projeto {
-            background: rgba(8, 4, 4, 0.98); /* Fundo preto quase puro para tampar as partículas do canvas */
-            border: 1px solid rgba(220, 53, 69, 0.15); /* Bordinha vermelha bem discreta em repouso */
+            background: rgba(8, 4, 4, 0.98);
+            border: 1px solid rgba(220, 53, 69, 0.15);
             border-radius: 6px;
             padding: 35px;
-            min-height: 350px; /* Força todos os cards a terem exatamente o mesmo tamanho na linha */
+            min-height: 350px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Joga os textos pro topo e as tags/botões pra base de forma alinhada */
+            justify-content: space-between;
             position: relative;
-            
-            /* Curva bezier customizada para o efeito de elevação 3D parecer elástico/magnético */
             transition: 
                 transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
                 box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
                 border-color 0.3s ease;
         }
 
-        /* 1. DINÂMICA 3D: Elevação no eixo Z + Dupla Almofada de Sombra Neon */
         .card-projeto:hover {
-            border-color: rgba(220, 53, 69, 0.5); /* Clareia a borda interna */
-            /* Joga o card 12px para cima (Y) e projeta ele 45px para frente na direção do usuário (Z) */
+            border-color: rgba(220, 53, 69, 0.5);
             transform: translateY(-12px) translateZ(45px);
-            /* Camada dupla de sombra: uma preta opaca pro fundo e uma vermelha espalhada pro neon */
             box-shadow: 
                 0 25px 35px rgba(0, 0, 0, 0.8), 
                 0 15px 45px rgba(220, 53, 69, 0.35);
         }
 
-        /* 2. ENERGIA PASSANDO NAS BORDAS (Efeito hacker de feixe laser correndo no contorno) */
         .card-projeto::before {
             content: "";
             position: absolute;
-            inset: -2px; /* Expande 2px para fora do limite original do card */
+            inset: -2px;
             border-radius: 8px;
-            padding: 2px; /* Espessura exata do filete de luz */
-            /* Gradiente de transição do laser vermelho */
+            padding: 2px;
             background: linear-gradient(90deg, transparent, #ff001a, transparent, #ff001a, transparent);
             background-size: 200% auto;
-            
-            /* Máscara Webkit para navegadores Chrome, Safari, Edge e Opera. Garante que só a borda brilhe */
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
-            
-            /* Máscara padrão W3C (para compatibilidade com o Firefox) */
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude; /* No Firefox o 'exclude' faz o papel do 'xor' */
-            
-            pointer-events: none; /* Mouse ignora a borda para não interceptar cliques */
-            opacity: 0; /* Começa totalmente invisível */
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        /* Ativa o feixe laser correndo pelas bordas quando o mouse entra no card */
         .card-projeto:hover::before {
             opacity: 1;
-            animation: fluxo_energia 2s linear infinite; /* Animação infinita em velocidade linear */
+            animation: fluxo_energia 2s linear infinite;
         }
 
-        /* Desloca a posição do gradiente de fundo criando o efeito ótico de movimento linear */
         @keyframes fluxo_energia {
             0% { background-position: 0% center; }
             100% { background-position: 200% center; }
         }
 
-        /* ELEMENTOS DE TEXTO INTERNOS DO CARD */
         .topo-projeto {
             display: flex;
             justify-content: space-between;
@@ -103,17 +80,15 @@
             margin-bottom: 20px;
         }
 
-        /* ID digital do projeto (ex: // project_01) */
         .index-digital {
             font-family: 'Courier New', Courier, monospace;
-            color: rgba(220, 53, 69, 0.3); /* Começa apagado e cinza-avermelhado */
+            color: rgba(220, 53, 69, 0.3);
             font-size: 0.8rem;
             font-weight: bold;
             letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        /* Acende o texto do ID do projeto no hover */
         .card-projeto:hover .index-digital {
             color: #ff001a;
             text-shadow: 0 0 8px #ff001a;
@@ -133,7 +108,6 @@
             transition: color 0.3s, transform 0.3s;
         }
 
-        /* Destaca o ícone do título (C++ ou Python) quando o card levita */
         .card-projeto:hover h3 i {
             color: #ff001a !important;
             transform: scale(1.1);
@@ -146,16 +120,14 @@
             margin-bottom: 25px;
         }
 
-        /* 3. MEUS LEDS DIGITAIS DE CARREGAMENTO (DATASTREAM) */
         .datastream {
             margin-bottom: 25px;
         }
         
-        /* Textos de status do terminal de leds */
         .datastream-info {
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.75rem;
-            color: #444; /* Começa cinza escuro semi-apagado */
+            color: #444;
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
@@ -163,37 +135,33 @@
         }
 
         .card-projeto:hover .datastream-info {
-            color: #888; /* Ganha um tom cinza mais claro no hover */
+            color: #888;
         }
 
         .grid-blocos {
             display: flex;
-            gap: 5px; /* Espaço milimétrico de separação física entre os quadradinhos de led */
+            gap: 5px;
         }
 
-        /* Estado padrão de cada bloquinho de led (desligado) */
         .bloco-led {
             width: 16px;
             height: 6px;
-            background: rgba(255, 255, 255, 0.04); /* Cor cinza-transparente de desligado */
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 1px;
             transition: all 0.3s ease;
         }
 
-        /* Quando o card sofre hover, TODOS os leds mudam de cor e ganham brilho... */
         .card-projeto:hover .bloco-led {
             background: #dc3545;
             box-shadow: 0 0 8px #dc3545;
         }
         
-        /* ...PORÉM, o segredo do efeito de carregamento linear está nesses delays progressivos! */
         .card-projeto:hover .bloco-led:nth-child(1) { transition-delay: 0.04s; }
         .card-projeto:hover .bloco-led:nth-child(2) { transition-delay: 0.08s; }
         .card-projeto:hover .bloco-led:nth-child(3) { transition-delay: 0.12s; }
         .card-projeto:hover .bloco-led:nth-child(4) { transition-delay: 0.16s; }
         .card-projeto:hover .bloco-led:nth-child(5) { transition-delay: 0.20s; }
 
-        /* TAGS TÁTICAS DE TECNOLOGIAS UTILIZADAS (#Python, #Arduino, etc) */
         .tags-projeto {
             display: flex;
             gap: 8px;
@@ -211,13 +179,11 @@
             transition: all 0.3s;
         }
 
-        /* Destaca as bordas e os textos das tags no hover global do card */
         .card-projeto:hover .tags-projeto span {
             border-color: rgba(220, 53, 69, 0.25);
             color: #fff;
         }
 
-        /* BOTÃO TERMINAL EXECUTÁVEL (.sh) COORDENADO COM O MEU SCRIPT JS */
         .btn-projeto-link {
             display: flex;
             align-items: center;
@@ -234,12 +200,11 @@
             background: rgba(0, 0, 0, 0.3);
         }
 
-        /* Inversão completa de cor estilo console ativo quando passa o mouse */
         .card-projeto:hover .btn-projeto-link {
             color: #fff;
             border-color: #ff001a;
-            background: #dc3545; /* Fica totalmente vermelho */
-            box-shadow: 0 0 15px #dc3545; /* Explosão de brilho externo */
+            background: #dc3545;
+            box-shadow: 0 0 15px #dc3545;
         }
     </style>
 </head>
