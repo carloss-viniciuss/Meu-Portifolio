@@ -4,14 +4,19 @@ Bem-vindo ao meu portfólio! Este projeto é um website pessoal desenvolvido com
 
 ## 📊 Composição do Projeto
 
-- **HTML**: 63.4%
-- **CSS**: 23.8%
-- **JavaScript**: 12.8%
+- **HTML**: 58.5%
+- **CSS**: 28%
+- **JavaScript**: 13.5%
 
 ## 📝 Histórico de Commits
 
 | Data | Mensagem | Commit |
 |------|----------|--------|
+| 2026-06-12 02:17:07 | outras atualizacoes | [53b047d](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/53b047d379d75d29c30d114bc2f5e0ac40023f67) |
+| 2026-06-11 21:49:46 | mais correção | [5743146](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/574314653d33006406d962cab16ca403d2917e04) |
+| 2026-06-11 21:24:20 | tamanho do sobre mim | [a550ce9](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/a550ce98c1abdf1a38e49d2b8f1937293c0a4bf2) |
+| 2026-06-11 20:42:03 | correçao de erros | [29e54c4](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/29e54c405c6d49a9f0ea6718925dae77f3dd9302) |
+| 2026-06-10 14:48:53 | docs: atualizar README com novos commits do portfolio | [c693461](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/c693461b39a7e3c70cdc1fb1ba5322856d1c704a) |
 | 2026-06-10 14:40:29 | ajuste no linkedin | [eee38ee](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/eee38ee6e85858e6123ab73797e2e4818a7eed07) |
 | 2026-06-10 14:36:13 | atualizacoes | [ad40ef5](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/ad40ef590fd8c4450b263b8ec084e3e976f1d9c9) |
 | 2026-06-07 17:17:10 | docs: preencher README com histórico de commits | [280673c](https://github.com/carloss-viniciuss/Meu-Portifolio/commit/280673ce20401fdc81aec8481c3a4df1fd7e0b44) |
