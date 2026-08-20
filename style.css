@@ -1,6 +1,3 @@
-/* ==========================================================================
-   MINHAS CONFIGURAÇÕES GERAIS E RESET DE PADDING/MARGIN
-   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght=200;300;400;700;900&display=swap');
 
 * {
@@ -19,9 +16,6 @@ body {
     overflow-x: hidden; /* Evita que o site crie aquela barra de rolagem horizontal horrorosa */
 }
 
-/* ==========================================================================
-   MEU CANVAS DE FUNDO (PARTÍCULAS GERADAS VIA JS)
-   ========================================================================== */
 #cyber-bg {
     position: fixed; /* Fixa o fundo na tela para ele não rodar junto com o scroll */
     top: 0;
@@ -32,9 +26,6 @@ body {
     pointer-events: none; /* Faz o mouse ignorar o canvas (consegue clicar nos links por cima dele) */
 }
 
-/* ==========================================================================
-   HEADER (BARRA DE NAVEGAÇÃO SUPERIOR FIXED)
-   ========================================================================== */
 header {
     background-color: rgba(0, 0, 0, 0.8); /* Fundo preto com transparência para o efeito blur */
     backdrop-filter: blur(10px); /* Efeito de vidro jateado (desfoca o que passa por trás) */
@@ -98,9 +89,6 @@ header .navegacao-primaria li a:hover::after {
     box-shadow: 0 0 10px #dc3545; /* Brilho neon na linha */
 }
 
-/* ==========================================================================
-   SEÇÃO HOME (BOAS-VINDAS E APRESENTAÇÃO PRINCIPAL)
-   ========================================================================== */
 .section-div {
     animation: inicializar .7s forwards; /* Dispara a animação de surgir de cima para baixo */
     display: flex;
@@ -157,9 +145,6 @@ header .navegacao-primaria li a:hover::after {
     display: block;
 }
 
-/* ==========================================================================
-   SEÇÃO SOBRE MIM e ARTIGOS DE CONTEÚDO
-   ========================================================================== */
 main {
     background-color: rgba(17, 17, 17, 0.95); /* Fundo um pouco mais claro que o body para criar camadas */
     padding: 80px 0;
@@ -249,9 +234,6 @@ main {
     width: 20px; /* Fixa uma largura para os textos começarem todos na mesma coluna horizontal */
 }
 
-/* ==========================================================================
-   MEUS CONTAINERS DE SKILLS (TECH STACK / HARD SKILLS)
-   ========================================================================== */
 .skills-container {
     margin-top: 10px;
     border-top: 1px solid rgba(220, 53, 69, 0.1);
@@ -333,9 +315,6 @@ main {
 .icon-box:nth-child(6) { animation-delay: 2s; }
 .icon-box:nth-child(7) { animation-delay: 2.4s; }
 
-/* ==========================================================================
-   ESTILO DO BOTÃO ANTIGO DE PROJETOS (Mantido para compatibilidade histórica do tema)
-   ========================================================================== */
 .projetos-link-container {
     margin-top: 30px;
     border-top: 1px solid rgba(220, 53, 69, 0.1);
@@ -378,9 +357,6 @@ main {
     color: #fff;
 }
 
-/* ==========================================================================
-   MINHAS MARGENS TÁTICAS PARA AJUSTAR O ALVO DOS LINKS DE SCROLL INTERNO
-   ========================================================================== */
 /* Evita que o cabeçalho fixo tampe o início dos títulos ao usar links com '#' */
 #alvo-sobre {
     display: block;
@@ -394,9 +370,6 @@ main {
     scroll-margin-top: 250px; 
 }
 
-/* ==========================================================================
-   ESTRUTURA DO GLITCH SCREEN: MEU SISTEMA DE TRANSIÇÃO HACKER TERMINAL
-   ========================================================================== */
 .page-overlay {
     position: fixed;
     inset: 0;
@@ -459,9 +432,6 @@ main {
     filter: invert(0.1) sepia(0.2) saturate(2) hue-rotate(330deg); /* Altera radicalmente a paleta de cores para o vermelho instável */
 }
 
-/* ==========================================================================
-   CONTEÚDO FINAL: MEUS BOTÕES TÁTICOS GIGANTES DE PROJETOS E CERTIFICADOS
-   ========================================================================== */
 
 /* Caixa mãe que empilha verticalmente os botões .sh e .bin */
 .projetos-actions {
@@ -514,10 +484,6 @@ main {
     transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   SISTEMA DE LEDS NEON EMBUTIDOS NOS BOTÕES (MECÂNICA DE RENDER DO TEMA)
-   ========================================================================== */
-
 /* LED Vermelho padrão do painel */
 .btn-led {
     width: 10px; 
@@ -546,10 +512,6 @@ main {
     background: #fff; 
     box-shadow: 0 0 12px #00f2fe, 0 0 25px #00f2fe, 0 0 40px #00c6ff;
 }
-
-/* ==========================================================================
-   LÓGICA MATEMÁTICA E TIMING DAS ANIMAÇÕES (KEYFRAMES)
-   ========================================================================== */
 
 /* Cria o efeito levitando suave dos cards de tecnologia */
 @keyframes flutuar {
