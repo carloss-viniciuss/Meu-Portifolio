@@ -676,3 +676,9 @@ main {
     text-shadow: 0 0 8px #0A66C2;
 }
                         
+.icon-box svg {
+    width: 1em;
+    height: 1em;
+    font-size: inherit; /* Herda o mesmo tamanho definido para o <i> no .icon-box */
+    color: inherit;     /* Herda o mesmo tom cinza dos outros ícones */
+}
