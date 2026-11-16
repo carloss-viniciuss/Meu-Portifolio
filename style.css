@@ -94,10 +94,16 @@ header .navegacao-primaria li a:hover::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: clamp(24px, 4vw, 48px);
     max-width: 1200px;
     margin: 0 auto;
     padding: 150px 40px 80px 40px; /* Padding de 150px no topo para o menu fixo não cobrir as frases */
     min-height: 80vh;
+}
+
+.section-div > div:first-child {
+    flex: 1;
+    min-width: 0;
 }
 
 .section-div div h2 {
@@ -107,7 +113,7 @@ header .navegacao-primaria li a:hover::after {
 
 .section-div .digitando {
     color: #dc3545;
-    font-size: 3rem;
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 
 /* Meu botão clássico de Download de Currículo */
@@ -133,6 +139,10 @@ header .navegacao-primaria li a:hover::after {
 /* Efeito de pulso neon na moldura da minha foto redonda */
 .foto-container {
     position: relative;
+    flex: 0 1 auto;
+    width: clamp(180px, 30vw, 370px);
+    max-width: 100%;
+    min-width: 0;
     border-radius: 50%;
     padding: 10px;
     box-shadow: 0 0 30px rgba(220, 53, 69, 0.5);
@@ -140,9 +150,24 @@ header .navegacao-primaria li a:hover::after {
 }
 
 .foto-container img {
-    max-width: 350px;
+    width: 100%;
+    height: auto;
     border-radius: 50%;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .section-div {
+        flex-direction: column-reverse;
+        gap: 35px;
+        padding: 130px 24px 60px;
+        text-align: center;
+    }
+
+    .foto-container {
+        flex: 0 1 auto;
+        width: clamp(160px, 30vw, 300px);
+    }
 }
 
 main {
